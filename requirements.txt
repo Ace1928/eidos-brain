@@ -1,0 +1,4 @@
+rich
+pytest
+black
+flake8

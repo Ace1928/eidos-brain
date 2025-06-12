@@ -1,5 +1,6 @@
 """Agent dedicated to running experiments within Eidos-Brain."""
 
+
 class ExperimentAgent:
     """Handles experimental cycles and evaluations."""
 

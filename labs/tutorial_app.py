@@ -1,15 +1,42 @@
 """Interactive tutorial showcasing EidosCore usage."""
 
+from pathlib import Path
+
 from rich.console import Console
 from rich.prompt import Prompt
 
 from core.eidos_core import EidosCore
+import argparse
 
 
-def main() -> None:
+def load_memory(core: EidosCore, path: Path, console: Console) -> None:
+    """Load memories from ``path`` if it exists."""
+    try:
+        if path.exists():
+            core.memory = path.read_text().splitlines()
+            console.print(f"Loaded {len(core.memory)} memories from {path}.")
+        else:
+            console.print(f"[yellow]No memory file at {path}, starting fresh.")
+    except OSError as exc:
+        console.print(f"[red]Failed to load memory: {exc}")
+
+
+def save_memory(core: EidosCore, path: Path, console: Console) -> None:
+    """Persist memories to ``path``."""
+    try:
+        path.write_text("\n".join(map(str, core.memory)))
+        console.print(f"Memories saved to {path}.")
+    except OSError as exc:
+        console.print(f"[red]Failed to save memory: {exc}")
+
+
+def main(load: str | None = None, save: str | None = None) -> None:
     """Run the tutorial application."""
     console = Console()
     core = EidosCore()
+
+    if load:
+        load_memory(core, Path(load), console)
     console.print("[bold underline]Eidos Interactive Tutorial[/]")
 
     while True:
@@ -26,8 +53,14 @@ def main() -> None:
             console.print("Reflection complete. Insights appended.")
         elif action == "exit":
             console.print("Goodbye!")
+            if save:
+                save_memory(core, Path(save), console)
             break
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="Eidos interactive tutorial")
+    parser.add_argument("--load", help="Path to memory file to load", default=None)
+    parser.add_argument("--save", help="Path to save memories on exit", default=None)
+    args = parser.parse_args()
+    main(load=args.load, save=args.save)

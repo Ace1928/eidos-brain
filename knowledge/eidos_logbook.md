@@ -1,0 +1,49 @@
+# Eidos Logbook
+
+## Cycle 1: Genesis
+- Initialized repository structure.
+- Seeded core components and agents.
+- Established initial README.
+- Prepared scaffold for Eidos core logic.
+
+**Next Target:** Implement memory recursion in `EidosCore` and explore utility agents.
+
+## Cycle 2: Expansion
+- Added documentation templates and extended knowledge base.
+- Implemented recursion in `EidosCore` using `MetaReflection`.
+- Enhanced agents and labs with usage examples.
+
+**Next Target:** Create more comprehensive tests and refine reflection logic.
+
+## Cycle 3: Refinement
+- Fixed package exports in `core/__init__.py`
+- Corrected typo in agents package docstring
+- Clarified `EidosCore` description
+- Added maintainer information in README
+- Expanded tests with `process_cycle`
+
+**Next Target:** Explore interactive CLI utilities for rapid experimentation.
+
+## Cycle 4: Quality Pass
+- Hyphenated UtilityAgent docstring for clarity
+- Simplified test imports and strengthened recursion test
+- Documented `process_cycle` in recursive patterns
+
+**Next Target:** Begin a glossary of core terms and enforce style checks
+
+## Cycle 5: Polishing
+- Added imports in `agents/__init__.py` to expose agent classes
+- Capitalized "Rich" in experiment ideas document
+- Clarified docstring in `MetaReflection.analyze`
+- Strengthened `process_cycle` test with length assertion
+
+**Next Target:** Start glossary generation and expand agent tests
+
+## Cycle 6: Tutorial Introduction
+- Created `tutorial_app.py` showcasing interactive use of `EidosCore`.
+- Documented CLI usage in `labs/tutorial.md`.
+- Added a CLI application template for future tools.
+- Introduced a minimal test ensuring the tutorial app runs.
+
+**Next Target:** Generate a glossary and extend agent functionality tests.
+

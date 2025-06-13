@@ -35,13 +35,15 @@ def save_memory(core: EidosCore, path: Path, console: Console) -> None:
         console.print(f"[red]Failed to save memory: {exc}")
 
 
-def main(load: str | None = None, save: str | None = None) -> None:
+def main(
+    load_memory_path: str | None = None, save_memory_path: str | None = None
+) -> None:
     """Run the tutorial application."""
     console = Console()
     core = EidosCore()
 
-    if load:
-        load_memory(core, Path(load), console)
+    if load_memory_path:
+        load_memory(core, Path(load_memory_path), console)
     console.print("[bold underline]Eidos Interactive Tutorial[/]")
     while True:
         console.print("\nChoose an action: [add, reflect, recurse, exit]")
@@ -56,20 +58,28 @@ def main(load: str | None = None, save: str | None = None) -> None:
             core.recurse()
             console.print("Reflection complete. Insights appended.")
         elif action == "exit":
-            if save:
-                save_memory(core, Path(save), console)
             console.print("Goodbye!")
-            if save:
-                save_memory(core, Path(save), console)
             break
-
-    if save:
-        save_memory(core, Path(save), console)
+    if save_memory_path:
+        save_memory(core, Path(save_memory_path), console)
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Eidos interactive tutorial")
-    parser.add_argument("--load", help="Path to memory file to load", default=None)
-    parser.add_argument("--save", help="Path to save memories on exit", default=None)
+    parser.add_argument(
+        "--load-memory",
+        help="Path to memory file to load",
+        dest="load_memory_path",
+        default=None,
+    )
+    parser.add_argument(
+        "--save-memory",
+        help="Path to save memories on exit",
+        dest="save_memory_path",
+        default=None,
+    )
     args = parser.parse_args()
-    main(load=args.load, save=args.save)
+    main(
+        load_memory_path=args.load_memory_path,
+        save_memory_path=args.save_memory_path,
+    )

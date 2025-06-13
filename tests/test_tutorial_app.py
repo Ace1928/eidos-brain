@@ -15,14 +15,14 @@ def test_save_and_load_memory(tmp_path: Path):
     with patch("rich.prompt.Prompt.ask", side_effect=["add", "hello", "exit"]), patch(
         "rich.console.Console.print"
     ) as mock_print:
-        tutorial_app.main(save=str(memory_file))
+        tutorial_app.main(save_memory_path=str(memory_file))
         save_output = "".join(call.args[0] for call in mock_print.call_args_list)
     assert memory_file.exists()
     assert "Memories saved" in save_output
     with patch("rich.prompt.Prompt.ask", side_effect=["reflect", "exit"]), patch(
         "rich.console.Console.print"
     ) as mock_print:
-        tutorial_app.main(load=str(memory_file))
+        tutorial_app.main(load_memory_path=str(memory_file))
         prints = "".join(call.args[0] for call in mock_print.call_args_list)
     assert "Loaded 1 memories" in prints
 

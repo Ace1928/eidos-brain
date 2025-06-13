@@ -65,3 +65,12 @@
 - Added `ROOT` constant to glossary via generation script
 
 **Next Target:** Explore deeper reflection summaries and expand CLI utilities
+
+## Cycle 9: CLI Consistency
+- Refactored `tutorial_app.py` to remove duplicated save calls
+- Introduced `load_memory` and `save_memory` helpers in the command loop
+- Renamed CLI options to `--load-memory` and `--save-memory`
+- Documented new options in `labs/tutorial.md`
+- Updated tests to reflect CLI changes
+
+**Next Target:** Automate glossary updates when symbols change

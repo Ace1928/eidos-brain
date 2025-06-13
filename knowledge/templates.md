@@ -43,3 +43,25 @@ def test_feature() -> None:
     result = function_under_test()
     assert result == expected
 ```
+
+## Fuzz Test Template
+```python
+import sys
+import pytest
+
+atheris = pytest.importorskip("atheris")
+atheris.instrument_all()
+
+
+def fuzz_one_input(data: bytes) -> None:
+    """Handle fuzzed ``data`` for the target function."""
+    # target_function consumes arbitrary input
+    target_function(data)
+
+
+def test_fuzz() -> None:
+    """Run Atheris fuzzing with a limited number of iterations."""
+    atheris.Setup(sys.argv + ["-runs=10"], fuzz_one_input)
+    with pytest.raises(SystemExit):
+        atheris.Fuzz()
+```

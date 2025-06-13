@@ -10,6 +10,7 @@ Run wild. Evolve forever.
 - **agents/**: specialized actors for experiments and utilities
 - **knowledge/**: evolving documentation and design patterns
 - **labs/**: sandbox for rapid prototyping
+- **core/logging_config.py**: unified logging setup for all modules
 
 Within `labs/`, `tutorial_app.py` offers an interactive introduction to
 `EidosCore`.

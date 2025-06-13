@@ -47,3 +47,20 @@
 
 **Next Target:** Generate a glossary and extend agent functionality tests.
 
+## Cycle 7: Glossary and Persistence
+- Added glossary generation script and reference documentation
+- Extended `MetaReflection.analyze` with type and summary support
+- Enhanced tutorial app with memory persistence and error handling
+- Created tests for agents, glossary generation, and tutorial persistence
+- Introduced style checks with black and flake8
+
+**Next Target:** Refine reflection summaries and automate logbook entries
+
+## Cycle 8: Bugfix and Testing
+- Fixed a typo in `.gitignore` referencing the Visual Studio Code folder
+- Updated `tutorial_app.py` to locate core modules when run as a script
+- Documented running the tutorial from repo root in `labs/tutorial.md`
+- Extended tutorial tests to verify save messages and CLI availability
+- Added `ROOT` constant to glossary via generation script
+
+**Next Target:** Explore deeper reflection summaries and expand CLI utilities

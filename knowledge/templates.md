@@ -43,3 +43,17 @@ def test_feature() -> None:
     result = function_under_test()
     assert result == expected
 ```
+
+## Dockerfile Template
+```Dockerfile
+FROM python:3.10-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+CMD ["python", "labs/tutorial_app.py"]
+```

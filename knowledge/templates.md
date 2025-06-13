@@ -21,6 +21,21 @@ class ClassName:
         self.arg = arg
 ```
 
+## Memory Interface Template
+```python
+class MemoryProtocol(Protocol):
+    """Standard methods for memory backends."""
+
+    def add(self, experience: Any) -> None:
+        ...
+
+    def extend(self, experiences: Iterable[Any]) -> None:
+        ...
+
+    def get_all(self) -> list[Any]:
+        ...
+```
+
 ## CLI Application Template
 ```python
 from rich.console import Console

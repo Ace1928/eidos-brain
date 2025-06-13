@@ -13,6 +13,8 @@ Run wild. Evolve forever.
 
 Within `labs/`, `tutorial_app.py` offers an interactive introduction to
 `EidosCore`.
+`EidosCore` can operate with multiple memory backends, including `VectorMemory`
+and `KnowledgeGraph`, selectable when constructing the class.
 
 See `knowledge/README.md` for further guidance.
 

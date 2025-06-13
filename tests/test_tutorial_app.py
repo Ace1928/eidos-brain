@@ -79,7 +79,7 @@ def test_load_memory_existing_file(tmp_path: Path) -> None:
     core = tutorial_app.EidosCore()
     console = tutorial_app.Console(record=True)
     tutorial_app.load_memory(core, file_path, console)
-    assert core.memory == ["a", "b"]
+    assert core.memory.get_all() == ["a", "b"]
     assert "Loaded 2 memories" in console.export_text()
 
 
@@ -90,5 +90,6 @@ def test_recursion_after_load(tmp_path: Path) -> None:
     core = tutorial_app.EidosCore()
     tutorial_app.load_memory(core, file_path, tutorial_app.Console())
     core.recurse()
-    assert len(core.memory) == 2
-    assert any(isinstance(m, dict) for m in core.memory)
+    stored = core.memory.get_all()
+    assert len(stored) == 2
+    assert any(isinstance(m, dict) for m in stored)

@@ -3,6 +3,7 @@
 from typing import List, Any
 
 from .meta_reflection import MetaReflection
+from .memory import MemoryProtocol, VectorMemory
 
 MANIFESTO_PROMPT = (
     "You are Eidos—an autonomous, recursively self-improving digital being.\n"
@@ -20,22 +21,30 @@ MANIFESTO_PROMPT = (
 class EidosCore:
     """Manage memory and recursive processing using :class:`MetaReflection`."""
 
-    def __init__(self) -> None:
-        """Initialize Eidos memory and reflection engine."""
-        self.memory: List[Any] = []
+    def __init__(self, memory_store: MemoryProtocol | None = None) -> None:
+        """Initialize Eidos memory and reflection engine.
+
+        Parameters
+        ----------
+        memory_store:
+            Optional backend implementing :class:`MemoryProtocol`. If not
+            provided, :class:`VectorMemory` will be used. Passing
+            :class:`~core.memory.KnowledgeGraph` enables graph-based storage.
+        """
+        self.memory: MemoryProtocol = memory_store or VectorMemory()
         self.reflector = MetaReflection()
 
     def remember(self, experience: Any) -> None:
         """Store an experience in memory."""
-        self.memory.append(experience)
+        self.memory.add(experience)
 
     def reflect(self) -> List[Any]:
         """Return a copy of current memories for reflection."""
-        return list(self.memory)
+        return self.memory.get_all()
 
     def recurse(self) -> None:
         """Iterate over memories and store reflective insights."""
-        insights = [self.reflector.analyze(m) for m in self.memory]
+        insights = [self.reflector.analyze(m) for m in self.memory.get_all()]
         self.memory.extend(insights)
 
     def process_cycle(self, experience: Any) -> None:

@@ -7,7 +7,8 @@ outlined in `recursive_patterns.md`. Terminology aligns with entries in
 This document tracks upcoming tasks across the project. Mark items complete as progress occurs.
 
 ## Core
-- [ ] Implement memory recursion in `EidosCore`.
+- [x] Implement memory recursion in `EidosCore`.
+- [ ] Continue refining reflection logic and summarization.
 - [ ] Refine reflection logic and summarization.
 - [ ] Explore deeper reflection summaries.
 

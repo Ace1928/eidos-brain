@@ -7,6 +7,7 @@ Documentation includes:
 - `templates.md` – reusable code and documentation templates that ensure consistent style.
 - `glossary_reference.md` – generated glossary of important classes, functions, and constants.
 - `emergent_insights.md` – distilled lessons and observations from recursive experimentation.
+- `memory_architecture.md` – overview of memory backends and interfaces.
 - `TODO.md` – prioritized list of upcoming work across all domains.
 
 Every document can reference the others. Templates are showcased in `templates.md` and applied through the patterns described in `recursive_patterns.md`. Terminology is normalized via `glossary_reference.md` so explanations remain consistent.

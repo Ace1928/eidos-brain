@@ -15,4 +15,5 @@ This guide walks you through the `tutorial_app.py` application, which demonstrat
 3. Use the prompts to add experiences, view memories, and trigger recursion cycles.
 
 The tutorial shows how memories are reflected upon and expanded using `MetaReflection`.
+`EidosCore` now accepts custom memory backends such as `VectorMemory` and `KnowledgeGraph`. The tutorial uses the default `VectorMemory` implementation.
 

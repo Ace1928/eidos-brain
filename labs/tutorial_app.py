@@ -18,8 +18,9 @@ def load_memory(core: EidosCore, path: Path, console: Console) -> None:
     """Load memories from ``path`` if it exists."""
     try:
         if path.exists():
-            core.memory = path.read_text().splitlines()
-            console.print(f"Loaded {len(core.memory)} memories from {path}.")
+            items = path.read_text().splitlines()
+            core.memory.extend(items)
+            console.print(f"Loaded {len(items)} memories from {path}.")
         else:
             console.print(f"[yellow]No memory file at {path}, starting fresh.")
     except OSError as exc:
@@ -29,7 +30,7 @@ def load_memory(core: EidosCore, path: Path, console: Console) -> None:
 def save_memory(core: EidosCore, path: Path, console: Console) -> None:
     """Persist memories to ``path``."""
     try:
-        path.write_text("\n".join(map(str, core.memory)))
+        path.write_text("\n".join(map(str, core.memory.get_all())))
         console.print(f"Memories saved to {path}.")
     except OSError as exc:
         console.print(f"[red]Failed to save memory: {exc}")

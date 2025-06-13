@@ -12,7 +12,7 @@ def test_generate_glossary_cli(tmp_path: Path) -> None:
     backup = glossary_file.read_text() if glossary_file.exists() else ""
     try:
         result = subprocess.run(
-            [sys.executable, "tools/generate_glossary.py"],
+            [sys.executable, "tools/cli.py", "glossary"],
             capture_output=True,
             text=True,
         )

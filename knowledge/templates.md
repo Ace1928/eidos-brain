@@ -43,3 +43,19 @@ def test_feature() -> None:
     result = function_under_test()
     assert result == expected
 ```
+
+## Command Pattern Template
+```python
+class Command:
+    """Base interface for CLI commands."""
+
+    name: str = "example"
+    help: str = "Explain what the command does"
+
+    @staticmethod
+    def add_arguments(parser: argparse.ArgumentParser) -> None:
+        pass
+
+    def run(self, args: argparse.Namespace) -> None:
+        raise NotImplementedError
+```

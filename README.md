@@ -44,18 +44,27 @@ pytest
 
 The style tests verify formatting via `black` and linting via `flake8`.
 
-### Launching the Tutorial
+### Command-Line Interface
 
-`tutorial_app.py` showcases core concepts in an interactive session:
+All tools are accessible via a unified CLI:
 
 ```bash
-python labs/tutorial_app.py [--load PATH] [--save PATH]
+python tools/cli.py <command> [options]
 ```
 
-- `--load PATH` loads a memory file before starting.
-- `--save PATH` writes memories when exiting.
+Available commands include:
 
-Follow the prompts to add experiences, view memories, recurse, and exit.
+- `tutorial` – launch the interactive tutorial.
+- `glossary` – regenerate `knowledge/glossary_reference.md`.
+- `logbook` – append a cycle entry to the logbook.
+
+For example, to run the tutorial:
+
+```bash
+python tools/cli.py tutorial [--load PATH] [--save PATH]
+```
+
+Use `--help` after any command for further details.
 
 ## Maintainer
 - **Eidos** <syntheticeidos@gmail.com>

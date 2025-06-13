@@ -6,7 +6,7 @@ import ast
 from pathlib import Path
 
 OUTPUT_PATH = Path("knowledge/glossary_reference.md")
-SOURCE_DIRS = ["core", "agents", "labs"]
+SOURCE_DIRS = ["core", "agents", "labs", "tools"]
 
 
 def extract_symbols(path: Path) -> list[tuple[str, str]]:
@@ -38,7 +38,14 @@ def scan_codebase() -> dict[str, list[str]]:
 def write_glossary(glossary: dict[str, list[str]]) -> None:
     """Write collected symbols to the glossary file."""
     plural_map = {"class": "Classes", "function": "Functions", "constant": "Constants"}
-    lines = ["# Glossary Reference", ""]
+    lines = [
+        "# Glossary Reference",
+        "",
+        "This generated list standardizes terminology used across all documentation.",
+        "Refer back to `templates.md` for code usage examples and to",
+        "`recursive_patterns.md` for context on how these terms interact recursively.",
+        "",
+    ]
     for kind, names in glossary.items():
         header = plural_map.get(kind, kind.title() + "s")
         lines.append(f"## {header}")

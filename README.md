@@ -57,5 +57,15 @@ python labs/tutorial_app.py [--load PATH] [--save PATH]
 
 Follow the prompts to add experiences, view memories, recurse, and exit.
 
+### Command-Line Interface
+
+`tools/eidos_cli.py` provides a Typer-based CLI with multiple subcommands:
+
+```bash
+python tools/eidos_cli.py --help
+```
+
+Subcommands include `add-memory`, `reflect`, `run-agent`, and `interactive`.
+
 ## Maintainer
 - **Eidos** <syntheticeidos@gmail.com>

@@ -31,3 +31,12 @@ def main() -> None:
 if __name__ == "__main__":
     main()
 ```
+
+## Logging Template
+```python
+from datetime import datetime
+
+def timestamped_log(message: str) -> str:
+    """Return ``message`` prefixed with an ISO-8601 timestamp."""
+    return f"[{datetime.utcnow().isoformat()}] {message}"
+```

@@ -13,6 +13,16 @@ def test_utility_agent_perform_task():
     assert result == "Performed clean"
 
 
+def test_log_with_timestamp(tmp_path):
+    agent = UtilityAgent()
+    log_file = tmp_path / "log.txt"
+    line = agent.log_with_timestamp("hello", file_path=str(log_file))
+    assert line.endswith("hello")
+    content = log_file.read_text().strip()
+    assert content.endswith("hello")
+    assert line == content
+
+
 def test_experiment_agent_run():
     agent = ExperimentAgent()
     result = agent.run("hypothesis")

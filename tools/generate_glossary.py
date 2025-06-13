@@ -16,6 +16,9 @@ def extract_symbols(path: Path) -> list[tuple[str, str]]:
     for node in tree.body:
         if isinstance(node, ast.ClassDef):
             symbols.append((node.name, "class"))
+            for item in node.body:
+                if isinstance(item, ast.FunctionDef):
+                    symbols.append((f"{node.name}.{item.name}", "method"))
         elif isinstance(node, ast.FunctionDef):
             symbols.append((node.name, "function"))
         elif isinstance(node, ast.Assign):
@@ -27,7 +30,12 @@ def extract_symbols(path: Path) -> list[tuple[str, str]]:
 
 def scan_codebase() -> dict[str, list[str]]:
     """Scan source directories for symbols grouped by kind."""
-    glossary: dict[str, list[str]] = {"class": [], "function": [], "constant": []}
+    glossary: dict[str, list[str]] = {
+        "class": [],
+        "function": [],
+        "method": [],
+        "constant": [],
+    }
     for directory in SOURCE_DIRS:
         for path in Path(directory).glob("*.py"):
             for name, kind in extract_symbols(path):
@@ -37,7 +45,12 @@ def scan_codebase() -> dict[str, list[str]]:
 
 def write_glossary(glossary: dict[str, list[str]]) -> None:
     """Write collected symbols to the glossary file."""
-    plural_map = {"class": "Classes", "function": "Functions", "constant": "Constants"}
+    plural_map = {
+        "class": "Classes",
+        "function": "Functions",
+        "method": "Methods",
+        "constant": "Constants",
+    }
     lines = ["# Glossary Reference", ""]
     for kind, names in glossary.items():
         header = plural_map.get(kind, kind.title() + "s")

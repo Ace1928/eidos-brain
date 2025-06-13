@@ -10,6 +10,7 @@ This document tracks upcoming tasks across the project. Mark items complete as p
 ## Agents
 - [ ] Explore new utility agents.
 - [ ] Expand agent features and tests.
+- [x] Implement timestamped logging utility.
 
 ## Tools
 - [ ] Build interactive CLI utilities for rapid experimentation.

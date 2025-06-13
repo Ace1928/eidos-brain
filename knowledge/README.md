@@ -8,5 +8,7 @@ Documentation includes:
 - `glossary_reference.md` – generated glossary of important classes, functions, and constants.
 - `emergent_insights.md` – distilled lessons and observations from recursive experimentation.
 - `TODO.md` – prioritized list of upcoming work across all domains.
+- `web_ui_integration.md` – concept for connecting a web interface to the REST
+  API and event bus.
 
 Every document can reference the others. Templates are showcased in `templates.md` and applied through the patterns described in `recursive_patterns.md`. Terminology is normalized via `glossary_reference.md` so explanations remain consistent.

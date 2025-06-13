@@ -15,7 +15,17 @@ from core.eidos_core import EidosCore
 
 
 def load_memory(core: EidosCore, path: Path, console: Console) -> None:
-    """Load memories from ``path`` if it exists."""
+    """Load memories from ``path`` if it exists.
+
+    Parameters
+    ----------
+    core : EidosCore
+        Core instance whose memory will be populated.
+    path : Path
+        File containing stored experiences.
+    console : Console
+        Rich console for user feedback.
+    """
     try:
         if path.exists():
             core.memory = path.read_text().splitlines()
@@ -27,7 +37,17 @@ def load_memory(core: EidosCore, path: Path, console: Console) -> None:
 
 
 def save_memory(core: EidosCore, path: Path, console: Console) -> None:
-    """Persist memories to ``path``."""
+    """Persist memories to ``path``.
+
+    Parameters
+    ----------
+    core : EidosCore
+        Core instance providing memories to save.
+    path : Path
+        Destination file for persistence.
+    console : Console
+        Rich console for user feedback.
+    """
     try:
         path.write_text("\n".join(map(str, core.memory)))
         console.print(f"Memories saved to {path}.")
@@ -36,7 +56,15 @@ def save_memory(core: EidosCore, path: Path, console: Console) -> None:
 
 
 def main(load: str | None = None, save: str | None = None) -> None:
-    """Run the tutorial application."""
+    """Run the tutorial application.
+
+    Parameters
+    ----------
+    load : str | None
+        Optional path to an input memory file.
+    save : str | None
+        Optional path for saving memories when exiting.
+    """
     console = Console()
     core = EidosCore()
 

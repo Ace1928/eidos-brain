@@ -5,5 +5,16 @@ class UtilityAgent:
     """Provides supporting functions for the system."""
 
     def perform_task(self, task: str) -> str:
-        """Perform a simple utility task and return a status message."""
+        """Perform a simple utility task and return a status message.
+
+        Parameters
+        ----------
+        task : str
+            Name of the task to perform.
+
+        Returns
+        -------
+        str
+            Confirmation message describing the performed task.
+        """
         return f"Performed {task}"

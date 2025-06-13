@@ -65,3 +65,13 @@
 - Added `ROOT` constant to glossary via generation script
 
 **Next Target:** Explore deeper reflection summaries and expand CLI utilities
+
+## Cycle 9: CLI Enhancements
+- Added argument parsing to `labs/sandbox1.py` with options for initial
+  experience and recursion cycles.
+- Extended `tools/generate_glossary.py` with CLI arguments for output path
+  and directories.
+- Documented argument parsing template and updated tutorials.
+- Introduced tests for the new CLI interfaces.
+
+**Next Target:** Automate glossary updates and refine recursion utilities.

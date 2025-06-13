@@ -12,7 +12,8 @@ Run wild. Evolve forever.
 - **labs/**: sandbox for rapid prototyping
 
 Within `labs/`, `tutorial_app.py` offers an interactive introduction to
-`EidosCore`.
+`EidosCore`. The companion `sandbox1.py` script demonstrates advanced
+argument parsing for quick experimentation.
 
 See `knowledge/README.md` for further guidance.
 

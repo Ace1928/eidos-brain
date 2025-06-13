@@ -16,3 +16,13 @@ This guide walks you through the `tutorial_app.py` application, which demonstrat
 
 The tutorial shows how memories are reflected upon and expanded using `MetaReflection`.
 
+## Exploring Further with `sandbox1.py`
+
+The `sandbox1.py` script accepts command-line options for rapid experimentation:
+
+```bash
+python labs/sandbox1.py --initial "hello" --cycles 3
+```
+
+This runs three recursion cycles after seeding the core with the word "hello".
+

@@ -31,3 +31,24 @@ def main() -> None:
 if __name__ == "__main__":
     main()
 ```
+
+## CLI Argument Parsing Template
+```python
+import argparse
+
+
+def parse_args(args: list[str] | None = None) -> argparse.Namespace:
+    """Return command-line arguments for the application."""
+    parser = argparse.ArgumentParser(description="My tool description")
+    parser.add_argument("--option", help="An example option")
+    return parser.parse_args(args)
+
+
+def main() -> None:
+    args = parse_args()
+    # Access parsed options via ``args.option``
+
+
+if __name__ == "__main__":
+    main()
+```

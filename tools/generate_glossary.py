@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import argparse
 import ast
 from pathlib import Path
 
@@ -25,18 +26,25 @@ def extract_symbols(path: Path) -> list[tuple[str, str]]:
     return symbols
 
 
-def scan_codebase() -> dict[str, list[str]]:
-    """Scan source directories for symbols grouped by kind."""
+def scan_codebase(directories: list[str] | None = None) -> dict[str, list[str]]:
+    """Scan ``directories`` for symbols grouped by kind."""
+
+    if directories is None:
+        directories = SOURCE_DIRS
     glossary: dict[str, list[str]] = {"class": [], "function": [], "constant": []}
-    for directory in SOURCE_DIRS:
+    for directory in directories:
         for path in Path(directory).glob("*.py"):
             for name, kind in extract_symbols(path):
                 glossary[kind].append(name)
     return glossary
 
 
-def write_glossary(glossary: dict[str, list[str]]) -> None:
-    """Write collected symbols to the glossary file."""
+def write_glossary(
+    glossary: dict[str, list[str]], output: str | Path | None = None
+) -> None:
+    """Write collected symbols to ``output`` path."""
+
+    output_path = Path(output or OUTPUT_PATH)
     plural_map = {"class": "Classes", "function": "Functions", "constant": "Constants"}
     lines = ["# Glossary Reference", ""]
     for kind, names in glossary.items():
@@ -45,14 +53,39 @@ def write_glossary(glossary: dict[str, list[str]]) -> None:
         for name in sorted(set(names)):
             lines.append(f"- {name}")
         lines.append("")
-    OUTPUT_PATH.write_text("\n".join(lines))
+    output_path.write_text("\n".join(lines))
 
 
-def main() -> None:
+def parse_args(args: list[str] | None = None) -> argparse.Namespace:
+    """Return parsed arguments for CLI usage."""
+
+    # Advanced usage: allow custom directories and output path
+
+    parser = argparse.ArgumentParser(description="Generate a glossary of symbols")
+    parser.add_argument(
+        "--output",
+        default=str(OUTPUT_PATH),
+        help="Path to write the glossary file",
+    )
+    parser.add_argument(
+        "directories",
+        nargs="*",
+        default=SOURCE_DIRS,
+        help="Directories to scan for source files",
+    )
+    return parser.parse_args(args)
+
+
+def main(
+    output: str | Path | None = None, directories: list[str] | None = None
+) -> None:
     """Entry point for glossary generation."""
-    glossary = scan_codebase()
-    write_glossary(glossary)
+
+    glossary = scan_codebase(directories)
+    # ``write_glossary`` persists the scan results for external review
+    write_glossary(glossary, output)
 
 
 if __name__ == "__main__":
-    main()
+    args = parse_args()
+    main(output=args.output, directories=args.directories)

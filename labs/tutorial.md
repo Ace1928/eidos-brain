@@ -12,7 +12,7 @@ This guide walks you through the `tutorial_app.py` application, which demonstrat
    ```bash
    python labs/tutorial_app.py
    ```
-3. Use the prompts to add experiences, view memories, and trigger recursion cycles.
+   Run from the repository root so the application can locate core modules.
 
 The tutorial shows how memories are reflected upon and expanded using `MetaReflection`.
 

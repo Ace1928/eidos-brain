@@ -29,6 +29,7 @@ def load_memory(core: EidosCore, path: Path, console: Console) -> None:
 def save_memory(core: EidosCore, path: Path, console: Console) -> None:
     """Persist memories to ``path``."""
     try:
+        path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text("\n".join(map(str, core.memory)))
         console.print(f"Memories saved to {path}.")
     except OSError as exc:

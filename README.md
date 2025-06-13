@@ -14,6 +14,7 @@ Run wild. Evolve forever.
 Within `labs/`, `tutorial_app.py` offers an interactive introduction to
 `EidosCore`.
 
+Use `--output PATH` to write to a custom location.
 See `knowledge/README.md` for further guidance.
 
 ## Maintainer

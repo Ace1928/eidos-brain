@@ -10,7 +10,7 @@ def test_main_exits_quickly():
         tutorial_app.main()
 
 def test_save_and_load_memory(tmp_path: Path):
-    memory_file = tmp_path / "mem.txt"
+    memory_file = tmp_path / "sub" / "mem.txt"
     with patch("rich.prompt.Prompt.ask", side_effect=["add", "hello", "exit"]), patch(
         "rich.console.Console.print"
     ) as mock_print:

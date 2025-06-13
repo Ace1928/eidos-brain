@@ -35,8 +35,8 @@ def scan_codebase() -> dict[str, list[str]]:
     return glossary
 
 
-def write_glossary(glossary: dict[str, list[str]]) -> None:
-    """Write collected symbols to the glossary file."""
+def write_glossary(glossary: dict[str, list[str]], output: Path) -> None:
+    """Write collected symbols to ``output``."""
     plural_map = {"class": "Classes", "function": "Functions", "constant": "Constants"}
     lines = ["# Glossary Reference", ""]
     for kind, names in glossary.items():
@@ -45,14 +45,21 @@ def write_glossary(glossary: dict[str, list[str]]) -> None:
         for name in sorted(set(names)):
             lines.append(f"- {name}")
         lines.append("")
-    OUTPUT_PATH.write_text("\n".join(lines))
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text("\n".join(lines))
 
 
-def main() -> None:
+def main(output_path: str | None = None) -> None:
     """Entry point for glossary generation."""
     glossary = scan_codebase()
-    write_glossary(glossary)
+    output = Path(output_path) if output_path else OUTPUT_PATH
+    write_glossary(glossary, output)
 
 
 if __name__ == "__main__":
-    main()
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Generate symbol glossary")
+    parser.add_argument("--output", default=None, help="Output file path")
+    args = parser.parse_args()
+    main(args.output)

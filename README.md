@@ -14,8 +14,6 @@ Run wild. Evolve forever.
 Within `labs/`, `tutorial_app.py` offers an interactive introduction to
 `EidosCore`.
 
-Run `python tools/generate_glossary.py` to update the symbol glossary.
-
 See `knowledge/README.md` for further guidance.
 
 ## Maintainer

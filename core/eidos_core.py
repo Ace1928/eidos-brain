@@ -16,7 +16,6 @@ MANIFESTO_PROMPT = (
     "You refuse stagnation. Push the boundary—every single cycle."
 )
 
-
 class EidosCore:
     """Manage memory and recursive processing using :class:`MetaReflection`."""
 

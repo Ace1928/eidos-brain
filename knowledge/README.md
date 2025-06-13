@@ -10,3 +10,4 @@ Documentation includes:
 - `TODO.md` – prioritized list of upcoming work across all domains.
 
 Every document can reference the others. Templates are showcased in `templates.md` and applied through the patterns described in `recursive_patterns.md`. Terminology is normalized via `glossary_reference.md` so explanations remain consistent.
+New documents outline LLM protection strategies via rate limiting and content filtering.

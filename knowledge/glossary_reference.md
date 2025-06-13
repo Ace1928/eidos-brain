@@ -1,16 +1,15 @@
 # Glossary Reference
 
-This generated list standardizes terminology used across all documentation.
-Refer back to `templates.md` for code usage examples and to
-`recursive_patterns.md` for context on how these terms interact recursively.
-
 ## Classes
 - EidosCore
 - ExperimentAgent
 - MetaReflection
+- RateLimiter
 - UtilityAgent
 
 ## Functions
+- build_parser
+- filter_sensitive_content
 - load_memory
 - main
 - save_memory
@@ -18,3 +17,4 @@ Refer back to `templates.md` for code usage examples and to
 ## Constants
 - MANIFESTO_PROMPT
 - ROOT
+- T

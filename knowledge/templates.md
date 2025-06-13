@@ -31,3 +31,11 @@ def main() -> None:
 if __name__ == "__main__":
     main()
 ```
+
+## Test Template
+```python
+def test_feature() -> None:
+    """Verify a specific behavior."""
+    result = function_under_test()
+    assert result == expected
+```

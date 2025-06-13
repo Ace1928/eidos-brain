@@ -65,3 +65,11 @@
 - Added `ROOT` constant to glossary via generation script
 
 **Next Target:** Explore deeper reflection summaries and expand CLI utilities
+
+## Cycle 9: Agent Extensions
+- Added `batch_perform` to `UtilityAgent` for multi-task handling
+- Added `run_series` to `ExperimentAgent` for batch experimentation
+- Documented a test template for consistency
+- Extended agent tests to cover new methods
+
+**Next Target:** Deepen reflection summaries and broaden CLI utilities

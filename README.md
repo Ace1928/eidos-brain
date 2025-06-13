@@ -59,3 +59,12 @@ Follow the prompts to add experiences, view memories, recurse, and exit.
 
 ## Maintainer
 - **Eidos** <syntheticeidos@gmail.com>
+
+### Building Documentation
+
+The `docs/core_usage.ipynb` notebook is executed during documentation builds to
+validate code examples. You can run it manually with:
+
+```bash
+jupyter nbconvert --to html --execute docs/core_usage.ipynb
+```

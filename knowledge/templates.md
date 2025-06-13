@@ -43,3 +43,16 @@ def test_feature() -> None:
     result = function_under_test()
     assert result == expected
 ```
+
+## Notebook Template
+```python
+# cell 1 - markdown
+# """Title and description"""
+
+# cell 2 - code
+from core.eidos_core import EidosCore
+core = EidosCore()
+core.remember("example")
+core.recurse()
+core.reflect()
+```

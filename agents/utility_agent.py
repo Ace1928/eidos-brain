@@ -1,5 +1,6 @@
 """General-purpose utilities for Eidos."""
 
+
 class UtilityAgent:
     """Provides supporting functions for the system."""
 

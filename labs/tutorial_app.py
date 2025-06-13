@@ -1,6 +1,7 @@
 """Interactive tutorial showcasing EidosCore usage."""
 
 from pathlib import Path
+import argparse
 import sys
 
 from rich.console import Console
@@ -11,7 +12,6 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from core.eidos_core import EidosCore
-import argparse
 
 
 def load_memory(core: EidosCore, path: Path, console: Console) -> None:
@@ -42,18 +42,8 @@ def main(load: str | None = None, save: str | None = None) -> None:
 
     if load:
         load_memory(core, Path(load), console)
-from rich.console import Console
-from rich.prompt import Prompt
 
-from core.eidos_core import EidosCore
-
-
-def main() -> None:
-    """Run the tutorial application."""
-    console = Console()
-    core = EidosCore()
     console.print("[bold underline]Eidos Interactive Tutorial[/]")
-
     while True:
         console.print("\nChoose an action: [add, reflect, recurse, exit]")
         action = Prompt.ask("Action", choices=["add", "reflect", "recurse", "exit"])
@@ -67,6 +57,8 @@ def main() -> None:
             core.recurse()
             console.print("Reflection complete. Insights appended.")
         elif action == "exit":
+            if save:
+                save_memory(core, Path(save), console)
             console.print("Goodbye!")
             break
 
@@ -77,4 +69,3 @@ if __name__ == "__main__":
     parser.add_argument("--save", help="Path to save memories on exit", default=None)
     args = parser.parse_args()
     main(load=args.load, save=args.save)
-    main()

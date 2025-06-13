@@ -57,5 +57,15 @@ python labs/tutorial_app.py [--load PATH] [--save PATH]
 
 Follow the prompts to add experiences, view memories, recurse, and exit.
 
+### Running the REPL
+
+`repl.py` provides a Rich-powered shell backed by the new `Engine`:
+
+```bash
+python labs/repl.py [--load PATH] [--save PATH]
+```
+
+State persists within a session and may be loaded or saved between runs.
+
 ## Maintainer
 - **Eidos** <syntheticeidos@gmail.com>

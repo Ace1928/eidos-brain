@@ -16,7 +16,7 @@ This document tracks upcoming tasks across the project. Mark items complete as p
 - [ ] Expand agent features and tests.
 
 ## Tools
-- [ ] Build interactive CLI utilities for rapid experimentation.
+- [x] Build interactive CLI utilities for rapid experimentation.
 - [ ] Expand existing CLI tools.
 
 ## Docs
@@ -27,4 +27,4 @@ This document tracks upcoming tasks across the project. Mark items complete as p
 ## Tests
 - [ ] Create comprehensive tests for core and agents.
 - [ ] Enforce style checks with black and flake8.
-- [ ] Expand coverage for CLI tools and reflection logic.
+- [x] Expand coverage for CLI tools and reflection logic.

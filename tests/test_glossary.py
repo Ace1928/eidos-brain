@@ -20,5 +20,7 @@ def test_generate_glossary_cli(tmp_path: Path) -> None:
         content = glossary_file.read_text()
         assert "EidosCore" in content
         assert "UtilityAgent" in content
+        assert "\u2699\ufe0f" in content or "\U0001f3f7\ufe0f" in content
+        assert "Manage memory" in content
     finally:
         glossary_file.write_text(backup)

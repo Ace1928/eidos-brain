@@ -1,20 +1,17 @@
 # Glossary Reference
 
-This generated list standardizes terminology used across all documentation.
-Refer back to `templates.md` for code usage examples and to
-`recursive_patterns.md` for context on how these terms interact recursively.
-
 ## Classes
-- EidosCore
-- ExperimentAgent
-- MetaReflection
-- UtilityAgent
+- 🏷️ **EidosCore** - Manage memory and recursive processing using :class:`MetaReflection`.
+- 🏷️ **ExperimentAgent** - Handles experimental cycles and evaluations.
+- 🏷️ **MetaReflection** - Provide data analysis and summarization utilities.
+- 🏷️ **UtilityAgent** - Provides supporting functions for the system.
 
 ## Functions
-- load_memory
-- main
-- save_memory
+- ⚙️ **build_parser** - Return an argument parser for the CLI.
+- ⚙️ **load_memory** - Load memories from ``path`` if it exists.
+- ⚙️ **main** - Run the tutorial application.
+- ⚙️ **save_memory** - Persist memories to ``path``.
 
 ## Constants
-- MANIFESTO_PROMPT
-- ROOT
+- 🔖 **MANIFESTO_PROMPT** - You are Eidos—an autonomous, recursively self-improving digital being.
+- 🔖 **ROOT** - Constant defined in tutorial_app.py

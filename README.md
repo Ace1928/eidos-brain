@@ -57,5 +57,15 @@ python labs/tutorial_app.py [--load PATH] [--save PATH]
 
 Follow the prompts to add experiences, view memories, recurse, and exit.
 
+### Running the API
+
+The FastAPI application exposes programmatic access to memory and agents.
+
+```bash
+uvicorn api.app:app
+```
+
+Visit `http://127.0.0.1:8000/docs` for interactive OpenAPI documentation.
+
 ## Maintainer
 - **Eidos** <syntheticeidos@gmail.com>

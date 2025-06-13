@@ -43,3 +43,15 @@ def test_feature() -> None:
     result = function_under_test()
     assert result == expected
 ```
+
+## FastAPI Application Template
+```python
+from fastapi import FastAPI
+
+
+def create_app() -> FastAPI:
+    """Return a configured FastAPI instance."""
+    app = FastAPI()
+    # register routes here
+    return app
+```

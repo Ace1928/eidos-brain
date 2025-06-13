@@ -80,3 +80,11 @@
 - Documented persistence checks in test suite
 
 **Next Target:** Improve reflection detail generation and automate glossary updates
+
+## Cycle 10: API Exposure
+- Introduced a FastAPI application for programmatic memory and agent access.
+- Added endpoints for memory storage, querying, and agent execution.
+- Documented usage in README and expanded templates with an API pattern.
+- Extended tests to cover new API and style rules.
+
+**Next Target:** Enhance generated glossary entries and explore advanced API features.

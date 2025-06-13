@@ -2,6 +2,8 @@
 
 from typing import List, Any
 
+from .event_bus import EventBus
+
 from .meta_reflection import MetaReflection
 
 MANIFESTO_PROMPT = (
@@ -20,14 +22,17 @@ MANIFESTO_PROMPT = (
 class EidosCore:
     """Manage memory and recursive processing using :class:`MetaReflection`."""
 
-    def __init__(self) -> None:
-        """Initialize Eidos memory and reflection engine."""
+    def __init__(self, event_bus: EventBus | None = None) -> None:
+        """Initialize Eidos memory and optional event bus."""
         self.memory: List[Any] = []
         self.reflector = MetaReflection()
+        self.event_bus = event_bus
 
     def remember(self, experience: Any) -> None:
         """Store an experience in memory."""
         self.memory.append(experience)
+        if self.event_bus:
+            self.event_bus.publish(f"remember:{experience}")
 
     def reflect(self) -> List[Any]:
         """Return a copy of current memories for reflection."""
@@ -37,8 +42,12 @@ class EidosCore:
         """Iterate over memories and store reflective insights."""
         insights = [self.reflector.analyze(m) for m in self.memory]
         self.memory.extend(insights)
+        if self.event_bus:
+            self.event_bus.publish("recurse")
 
     def process_cycle(self, experience: Any) -> None:
         """Remember an experience and immediately recurse."""
         self.remember(experience)
         self.recurse()
+        if self.event_bus:
+            self.event_bus.publish("cycle")

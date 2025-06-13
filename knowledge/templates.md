@@ -43,3 +43,44 @@ def test_feature() -> None:
     result = function_under_test()
     assert result == expected
 ```
+
+## Async Function Template
+```python
+async def async_function(param: Type) -> ReturnType:
+    """Brief description of the coroutine."""
+    return await other_coroutine(param)
+```
+
+## Event Bus Template
+```python
+class EventBus:
+    """Publish messages to subscribed queues."""
+
+    def __init__(self) -> None:
+        self.queues: list[asyncio.Queue[str]] = []
+
+    def subscribe(self) -> asyncio.Queue[str]:
+        queue: asyncio.Queue[str] = asyncio.Queue()
+        self.queues.append(queue)
+        return queue
+
+    def publish(self, message: str) -> None:
+        for q in self.queues:
+            q.put_nowait(message)
+```
+
+## WebSocket Server Template
+```python
+async def start_server(bus: EventBus, host: str = "localhost", port: int = 8765) -> WebSocketServer:
+    """Stream bus messages to WebSocket clients."""
+
+    async def handler(ws: WebSocketServerProtocol) -> None:
+        queue = bus.subscribe()
+        try:
+            while True:
+                await ws.send(await queue.get())
+        finally:
+            bus.unsubscribe(queue)
+
+    return await websockets.serve(handler, host, port)
+```

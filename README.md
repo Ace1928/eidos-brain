@@ -44,6 +44,15 @@ pytest
 
 The style tests verify formatting via `black` and linting via `flake8`.
 
+### Mutation Testing
+
+Mutation testing checks how well the suite detects code changes. Execute it via
+the provided CLI:
+
+```bash
+python tools/mutation_test.py
+```
+
 ### Launching the Tutorial
 
 `tutorial_app.py` showcases core concepts in an interactive session:

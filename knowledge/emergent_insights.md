@@ -6,3 +6,4 @@ defined in `glossary_reference.md`.
 
 * Insight 1: Memory recursion can transform raw data into knowledge.
 * Insight 2: Templates enforce consistent design, enabling scalability.
+* Insight 3: Mutation testing highlights fragile assumptions in the suite.

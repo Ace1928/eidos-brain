@@ -43,3 +43,13 @@ def test_feature() -> None:
     result = function_under_test()
     assert result == expected
 ```
+
+## Mutation Test Script Template
+```python
+import subprocess
+
+
+def run_mutation_tests() -> int:
+    """Execute mutmut and return its exit code."""
+    return subprocess.call(["mutmut", "run"])
+```

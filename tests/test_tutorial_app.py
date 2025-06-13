@@ -58,3 +58,37 @@ def test_cli_help():
     )
     assert result.returncode == 0
     assert "Eidos interactive tutorial" in result.stdout
+
+
+def test_save_memory_creates_file(tmp_path: Path) -> None:
+    """Ensure ``save_memory`` writes data to disk."""
+    core = tutorial_app.EidosCore()
+    core.remember("note")
+    file_path = tmp_path / "saved.txt"
+    console = tutorial_app.Console(record=True)
+    tutorial_app.save_memory(core, file_path, console)
+    assert file_path.exists()
+    assert file_path.read_text() == "note"
+    assert "Memories saved" in console.export_text()
+
+
+def test_load_memory_existing_file(tmp_path: Path) -> None:
+    """Verify ``load_memory`` populates core from an existing file."""
+    file_path = tmp_path / "loaded.txt"
+    file_path.write_text("a\nb\n")
+    core = tutorial_app.EidosCore()
+    console = tutorial_app.Console(record=True)
+    tutorial_app.load_memory(core, file_path, console)
+    assert core.memory == ["a", "b"]
+    assert "Loaded 2 memories" in console.export_text()
+
+
+def test_recursion_after_load(tmp_path: Path) -> None:
+    """Ensure recursion continues to work after loading memories."""
+    file_path = tmp_path / "recurse.txt"
+    file_path.write_text("hello")
+    core = tutorial_app.EidosCore()
+    tutorial_app.load_memory(core, file_path, tutorial_app.Console())
+    core.recurse()
+    assert len(core.memory) == 2
+    assert any(isinstance(m, dict) for m in core.memory)

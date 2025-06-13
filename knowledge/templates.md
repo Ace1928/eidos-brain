@@ -31,3 +31,25 @@ def main() -> None:
 if __name__ == "__main__":
     main()
 ```
+
+## Utility CLI Template
+```python
+import argparse
+
+
+def parse_args() -> argparse.Namespace:
+    """Parse command-line options."""
+    parser = argparse.ArgumentParser(description="Describe the tool")
+    parser.add_argument("--flag", help="Example flag")
+    return parser.parse_args()
+
+
+def main() -> None:
+    """Entry point for command-line utilities."""
+    args = parse_args()
+    # Implement tool logic using ``args``
+
+
+if __name__ == "__main__":
+    main()
+```

@@ -13,6 +13,8 @@ Run wild. Evolve forever.
 
 Within `labs/`, `tutorial_app.py` offers an interactive introduction to
 `EidosCore`.
+Run `tools/generate_glossary.py` to build a markdown glossary of classes,
+functions and constants. Use `--output` and `--dirs` to customize paths.
 
 See `knowledge/README.md` for further guidance.
 

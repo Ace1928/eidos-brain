@@ -42,16 +42,7 @@ def main(load: str | None = None, save: str | None = None) -> None:
 
     if load:
         load_memory(core, Path(load), console)
-from rich.console import Console
-from rich.prompt import Prompt
 
-from core.eidos_core import EidosCore
-
-
-def main() -> None:
-    """Run the tutorial application."""
-    console = Console()
-    core = EidosCore()
     console.print("[bold underline]Eidos Interactive Tutorial[/]")
 
     while True:
@@ -70,6 +61,9 @@ def main() -> None:
             console.print("Goodbye!")
             break
 
+    if save:
+        save_memory(core, Path(save), console)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Eidos interactive tutorial")
@@ -77,4 +71,3 @@ if __name__ == "__main__":
     parser.add_argument("--save", help="Path to save memories on exit", default=None)
     args = parser.parse_args()
     main(load=args.load, save=args.save)
-    main()

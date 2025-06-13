@@ -1,5 +1,9 @@
 # TODO
 
+Tasks link back to the templates in `templates.md` and incorporate strategies
+outlined in `recursive_patterns.md`. Terminology aligns with entries in
+`glossary_reference.md`.
+
 This document tracks upcoming tasks across the project. Mark items complete as progress occurs.
 
 ## Core

@@ -66,6 +66,11 @@
 
 **Next Target:** Explore deeper reflection summaries and expand CLI utilities
 
+---
+For reference patterns, see `recursive_patterns.md`. Key terminology can be
+looked up in `glossary_reference.md`, while reusable code snippets live in
+`templates.md`.
+
 ## Cycle 9: Persistence Validation
 - Added targeted tests for `load_memory` and `save_memory` functions
 - Confirmed recursion still operates after loading saved memories

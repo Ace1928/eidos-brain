@@ -65,3 +65,8 @@
 - Added `ROOT` constant to glossary via generation script
 
 **Next Target:** Explore deeper reflection summaries and expand CLI utilities
+
+---
+For reference patterns, see `recursive_patterns.md`. Key terminology can be
+looked up in `glossary_reference.md`, while reusable code snippets live in
+`templates.md`.

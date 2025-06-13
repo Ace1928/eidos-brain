@@ -2,3 +2,6 @@ rich
 pytest
 black
 flake8
+mkdocs
+mkdocs-material
+mkdocstrings[python]

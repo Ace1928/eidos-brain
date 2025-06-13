@@ -1,0 +1,17 @@
+site_name: Eidos-Brain
+theme:
+  name: material
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: ["."]
+nav:
+  - Home: index.md
+  - Reference: reference.md
+markdown_extensions:
+  - admonition
+  - codehilite
+  - toc:
+      permalink: true

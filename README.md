@@ -57,5 +57,17 @@ python labs/tutorial_app.py [--load PATH] [--save PATH]
 
 Follow the prompts to add experiences, view memories, recurse, and exit.
 
+### Building Documentation
+
+MkDocs with the Material theme and `mkdocstrings` renders the API
+documentation located in the `docs/` directory. Use the following commands:
+
+```bash
+mkdocs serve  # start a local preview
+mkdocs build  # generate the static site in the 'site/' folder
+```
+
+The resulting pages provide a browsable reference for all modules.
+
 ## Maintainer
 - **Eidos** <syntheticeidos@gmail.com>

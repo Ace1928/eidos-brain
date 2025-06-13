@@ -1,5 +1,9 @@
 # Templates
 
+Use these snippets in conjunction with the strategies found in
+`recursive_patterns.md`. Any terminology used below is defined in
+`glossary_reference.md`.
+
 ## Function Template
 ```python
 def function_name(param1: Type, param2: Type) -> ReturnType:

@@ -71,5 +71,12 @@
 - Added `run_series` to `ExperimentAgent` for batch experimentation
 - Documented a test template for consistency
 - Extended agent tests to cover new methods
+- Documented upcoming enhancements in TODO for clarity
+- Outlined plans for automated glossary and logbook updates
+- Prepared templates to standardize future modules
+- Sketched advanced CLI utilities for experimentation
+- Added targeted tests for `load_memory` and `save_memory` functions
+- Confirmed recursion still operates after loading saved memories
+- Documented persistence checks in test suite
 
-**Next Target:** Deepen reflection summaries and broaden CLI utilities
+**Next Target:** Improve reflection detail generation and automate glossary updates

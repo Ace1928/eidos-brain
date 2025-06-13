@@ -1,7 +1,11 @@
 """Agent dedicated to running experiments within Eidos-Brain."""
 
+from __future__ import annotations
 
-class ExperimentAgent:
+from .agent import Agent
+
+
+class ExperimentAgent(Agent):
     """Handles experimental cycles and evaluations."""
 
     def run(self, hypothesis: str) -> str:

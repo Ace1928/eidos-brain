@@ -57,5 +57,30 @@ python labs/tutorial_app.py [--load PATH] [--save PATH]
 
 Follow the prompts to add experiences, view memories, recurse, and exit.
 
+### Docker Usage
+
+A Dockerfile is provided to run either the CLI tutorial or the API server.
+
+Build the image:
+
+```bash
+docker build -t eidos-brain .
+```
+
+Run the interactive tutorial:
+
+```bash
+docker run -it eidos-brain
+```
+
+Launch the API instead:
+
+```bash
+docker run -p 8000:8000 eidos-brain \
+    uvicorn labs.api_app:create_app --host 0.0.0.0 --port 8000
+```
+
+The container uses a slim Alpine base so dependencies compile cleanly.
+
 ## Maintainer
 - **Eidos** <syntheticeidos@gmail.com>

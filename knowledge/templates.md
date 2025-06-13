@@ -43,3 +43,39 @@ def test_feature() -> None:
     result = function_under_test()
     assert result == expected
 ```
+
+## Knowledge Graph Template
+```python
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class Node:
+    name: str
+    type: str
+
+@dataclass(frozen=True)
+class Fact:
+    subject: Node
+    predicate: str
+    obj: Node
+
+class KnowledgeGraph:
+    def __init__(self) -> None:
+        self.facts: list[Fact] = []
+
+    def add_fact(
+        self,
+        subject: str,
+        predicate: str,
+        obj: str,
+        *,
+        subject_type: str = "entity",
+        object_type: str = "entity",
+    ) -> None:
+        self.facts.append(
+            Fact(Node(subject, subject_type), predicate, Node(obj, object_type))
+        )
+
+    def query(self, subject: str | None = None, predicate: str | None = None) -> list[Fact]:
+        return [f for f in self.facts if f.subject.name == subject and f.predicate == predicate]
+```

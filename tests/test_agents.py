@@ -13,7 +13,19 @@ def test_utility_agent_perform_task():
     assert result == "Performed clean"
 
 
+def test_utility_agent_batch_perform():
+    agent = UtilityAgent()
+    results = agent.batch_perform(["clean", "build"])
+    assert results == ["Performed clean", "Performed build"]
+
+
 def test_experiment_agent_run():
     agent = ExperimentAgent()
     result = agent.run("hypothesis")
     assert result == "Experimenting with hypothesis"
+
+
+def test_experiment_agent_run_series():
+    agent = ExperimentAgent()
+    results = agent.run_series(["h1", "h2"])
+    assert results == ["Experimenting with h1", "Experimenting with h2"]

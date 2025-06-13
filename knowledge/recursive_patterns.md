@@ -1,5 +1,8 @@
 # Recursive Patterns
 
+These patterns guide the use of templates in `templates.md` and define how
+documentation references are organized in the `glossary_reference.md`.
+
 ## Memory Recursion Pattern
 1. Collect experiences.
 2. Reflect on stored memories.

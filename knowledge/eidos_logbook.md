@@ -71,5 +71,8 @@
 - Outlined plans for automated glossary and logbook updates
 - Prepared templates to standardize future modules
 - Sketched advanced CLI utilities for experimentation
+- Added targeted tests for `load_memory` and `save_memory` functions
+- Confirmed recursion still operates after loading saved memories
+- Documented persistence checks in test suite
 
-**Next Target:** Implement automated logbook updates and extend CLI modules
+**Next Target:** Improve reflection detail generation and automate glossary updates

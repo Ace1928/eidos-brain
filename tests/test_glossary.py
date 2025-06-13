@@ -1,15 +1,24 @@
-from tools.generate_glossary import main
+"""Tests for the glossary generation tool."""
+
 from pathlib import Path
+import subprocess
+import sys
 
 
-def test_generate_glossary(tmp_path: Path):
-    glossary_file = tmp_path / "glossary.md"
-    orig_output = main.__globals__["OUTPUT_PATH"]
-    main.__globals__["OUTPUT_PATH"] = glossary_file
+def test_generate_glossary_cli(tmp_path: Path) -> None:
+    """Run the CLI and validate that expected symbols appear."""
+
+    glossary_file = Path("knowledge/glossary_reference.md")
+    backup = glossary_file.read_text() if glossary_file.exists() else ""
     try:
-        main()
+        result = subprocess.run(
+            [sys.executable, "tools/generate_glossary.py"],
+            capture_output=True,
+            text=True,
+        )
+        assert result.returncode == 0
         content = glossary_file.read_text()
         assert "EidosCore" in content
         assert "UtilityAgent" in content
     finally:
-        main.__globals__["OUTPUT_PATH"] = orig_output
+        glossary_file.write_text(backup)

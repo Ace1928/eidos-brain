@@ -39,3 +39,4 @@ def test_cli_help():
         text=True,
     )
     assert result.returncode == 0
+    assert "Eidos interactive tutorial" in result.stdout

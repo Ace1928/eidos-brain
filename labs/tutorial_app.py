@@ -42,7 +42,6 @@ def main(load: str | None = None, save: str | None = None) -> None:
 
     if load:
         load_memory(core, Path(load), console)
-        
     console.print("[bold underline]Eidos Interactive Tutorial[/]")
 
     while True:

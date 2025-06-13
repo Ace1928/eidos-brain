@@ -2,3 +2,4 @@ rich
 pytest
 black
 flake8
+openai

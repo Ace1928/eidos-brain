@@ -43,3 +43,30 @@ def test_feature() -> None:
     result = function_under_test()
     assert result == expected
 ```
+
+## WSGI API Template
+```python
+from wsgiref.simple_server import make_server
+
+from core.health import HealthChecker
+
+
+def create_app(checker: HealthChecker | None = None):
+    """Return a WSGI application with a health endpoint."""
+
+    checker = checker or HealthChecker()
+
+    def app(environ, start_response):
+        if environ.get("PATH_INFO") == "/healthz":
+            start_response("200 OK", [("Content-Type", "application/json")])
+            return [b'{"status": "ok"}']
+        start_response("404 Not Found", [])
+        return [b""]
+
+    return app
+
+
+def run_server() -> None:
+    with make_server("0.0.0.0", 8000, create_app()) as server:
+        server.serve_forever()
+```

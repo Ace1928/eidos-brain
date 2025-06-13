@@ -80,3 +80,9 @@
 - Documented persistence checks in test suite
 
 **Next Target:** Improve reflection detail generation and automate glossary updates
+
+## Cycle 10: Event Bus Integration
+- Introduced EventBus and integrated it with EidosCore.
+- Added events for memory, reflection, recursion, and cycle completion.
+- Extended tests to verify event emission.
+

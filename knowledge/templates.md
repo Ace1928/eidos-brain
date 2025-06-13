@@ -43,3 +43,14 @@ def test_feature() -> None:
     result = function_under_test()
     assert result == expected
 ```
+
+## Recursive Summary Template
+```python
+def recursive_summary(items: list[Any], chunk_size: int = 10) -> str:
+    """Condense ``items`` into a short summary."""
+    if len(items) <= chunk_size:
+        return "; ".join(map(str, items))
+    chunks = [items[i : i + chunk_size] for i in range(0, len(items), chunk_size)]
+    summaries = [recursive_summary(chunk, chunk_size) for chunk in chunks]
+    return recursive_summary(summaries, chunk_size)
+```

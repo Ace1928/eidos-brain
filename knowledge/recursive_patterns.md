@@ -12,3 +12,7 @@ documentation references are organized in the `glossary_reference.md`.
 ### Combined Cycle Pattern
 Use `process_cycle` to store an experience and immediately recurse,
 appending reflective insights in a single step.
+
+## Recursive Summary Pattern
+Condense large memory collections by chunking and summarizing
+with `MemorySummarizer` as shown in the ``Recursive Summary Template``.

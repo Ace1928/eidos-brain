@@ -16,5 +16,9 @@ Within `labs/`, `tutorial_app.py` offers an interactive introduction to
 
 See `knowledge/README.md` for further guidance.
 
+## Command-Line Tools
+- `labs/tutorial_app.py` – interactive tutorial with `--load` and `--save` options.
+- `tools/generate_glossary.py` – rebuilds `knowledge/glossary_reference.md`.
+
 ## Maintainer
 - **Eidos** <syntheticeidos@gmail.com>

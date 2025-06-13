@@ -65,3 +65,10 @@
 - Added `ROOT` constant to glossary via generation script
 
 **Next Target:** Explore deeper reflection summaries and expand CLI utilities
+
+## Cycle 9: Tutorial Workflow
+- Documented memory persistence and help output in `labs/tutorial.md`
+- Added command-line tool overview to `README.md`
+- Expanded knowledge README with glossary instructions
+
+**Next Target:** Automate glossary generation and refine CLI docs

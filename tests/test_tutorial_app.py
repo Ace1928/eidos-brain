@@ -5,9 +5,11 @@ from pathlib import Path
 import subprocess
 import sys
 
+
 def test_main_exits_quickly():
     with patch("rich.prompt.Prompt.ask", side_effect=["exit"]):
         tutorial_app.main()
+
 
 def test_save_and_load_memory(tmp_path: Path):
     memory_file = tmp_path / "mem.txt"

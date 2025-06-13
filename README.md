@@ -59,3 +59,17 @@ Follow the prompts to add experiences, view memories, recurse, and exit.
 
 ## Maintainer
 - **Eidos** <syntheticeidos@gmail.com>
+
+### Persistence Utilities
+Use the helpers in `core.persistence` to save and load vector memories or knowledge graphs:
+
+```python
+from core.persistence import (
+    save_vector_memory,
+    load_vector_memory,
+    save_knowledge_graph,
+    load_knowledge_graph,
+)
+```
+
+Each function accepts a `pathlib.Path` and handles JSON serialization.

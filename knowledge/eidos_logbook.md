@@ -80,3 +80,10 @@
 - Documented persistence checks in test suite
 
 **Next Target:** Improve reflection detail generation and automate glossary updates
+
+## Cycle 10: Persistence Utilities
+- Added `core/persistence.py` with save/load helpers for vectors and graphs
+- Exported new utilities in `core/__init__.py`
+- Created tests verifying round-trip and missing-file behavior
+
+**Next Target:** Document graph structures and integrate persistence into tutorial

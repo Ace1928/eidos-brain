@@ -43,3 +43,17 @@ def test_feature() -> None:
     result = function_under_test()
     assert result == expected
 ```
+
+## VectorMemory Template
+```python
+class VectorMemory:
+    """Store embeddings and support similarity queries."""
+
+    def add(self, embedding: list[float], item: Any) -> None:
+        """Persist ``embedding`` and associate it with ``item``."""
+        pass
+
+    def query(self, embedding: list[float], top_k: int = 1) -> list[Any]:
+        """Return items most similar to ``embedding``."""
+        pass
+```

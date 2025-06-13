@@ -43,3 +43,12 @@ def test_feature() -> None:
     result = function_under_test()
     assert result == expected
 ```
+
+## Integration Test Template
+```python
+def test_integration(tmp_path: Path) -> None:
+    """Exercise multiple modules working together."""
+    result = cli_entrypoint("--output", tmp_path / "out.txt")
+    assert (tmp_path / "out.txt").exists()
+    assert "Success" in result
+```

@@ -43,3 +43,17 @@ def test_feature() -> None:
     result = function_under_test()
     assert result == expected
 ```
+
+## Adapter Template
+```python
+class AdapterName:
+    """Handle transformation between components."""
+
+    def __init__(self, config: dict | None = None) -> None:
+        self.config = config or {}
+
+    def adapt(self, data: object) -> object:
+        """Convert ``data`` to the desired format."""
+        # Adaptation logic goes here
+        return data
+```

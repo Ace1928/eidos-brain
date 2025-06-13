@@ -65,3 +65,11 @@
 - Added `ROOT` constant to glossary via generation script
 
 **Next Target:** Explore deeper reflection summaries and expand CLI utilities
+
+## Cycle 9: Persistence in Core
+- Implemented `load_memory` and `save_memory` in `EidosCore`.
+- Integrated persistence with `process_cycle` via optional path argument.
+- Added tests covering new methods and cycle persistence.
+- Documented persistence pattern and updated templates.
+
+**Next Target:** Refine memory serialization for complex data types.

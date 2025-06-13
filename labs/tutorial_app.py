@@ -15,23 +15,23 @@ from core.eidos_core import EidosCore
 
 
 def load_memory(core: EidosCore, path: Path, console: Console) -> None:
-    """Load memories from ``path`` if it exists."""
+    """Load memories from ``path`` using :class:`EidosCore`."""
     try:
+        core.load_memory(path)
         if path.exists():
-            core.memory = path.read_text().splitlines()
             console.print(f"Loaded {len(core.memory)} memories from {path}.")
         else:
             console.print(f"[yellow]No memory file at {path}, starting fresh.")
-    except OSError as exc:
+    except IOError as exc:
         console.print(f"[red]Failed to load memory: {exc}")
 
 
 def save_memory(core: EidosCore, path: Path, console: Console) -> None:
-    """Persist memories to ``path``."""
+    """Persist memories to ``path`` using :class:`EidosCore`."""
     try:
-        path.write_text("\n".join(map(str, core.memory)))
+        core.save_memory(path)
         console.print(f"Memories saved to {path}.")
-    except OSError as exc:
+    except IOError as exc:
         console.print(f"[red]Failed to save memory: {exc}")
 
 

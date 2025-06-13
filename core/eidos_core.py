@@ -1,6 +1,7 @@
 """Core logic for the Eidos entity."""
 
 from typing import List, Any
+from pathlib import Path
 
 from .meta_reflection import MetaReflection
 
@@ -38,7 +39,28 @@ class EidosCore:
         insights = [self.reflector.analyze(m) for m in self.memory]
         self.memory.extend(insights)
 
-    def process_cycle(self, experience: Any) -> None:
-        """Remember an experience and immediately recurse."""
+    def load_memory(self, path: Path) -> None:
+        """Load newline-separated memories from ``path`` if available."""
+        try:
+            if path.exists():
+                self.memory = path.read_text().splitlines()
+            else:
+                self.memory = []
+        except OSError as exc:
+            raise IOError(f"Failed to load memory: {exc}") from exc
+
+    def save_memory(self, path: Path) -> None:
+        """Persist current memories to ``path`` using line separation."""
+        try:
+            path.write_text("\n".join(map(str, self.memory)))
+        except OSError as exc:
+            raise IOError(f"Failed to save memory: {exc}") from exc
+
+    def process_cycle(self, experience: Any, memory_path: Path | None = None) -> None:
+        """Handle one cycle of experience, reflection, and optional persistence."""
+        if memory_path is not None:
+            self.load_memory(memory_path)
         self.remember(experience)
         self.recurse()
+        if memory_path is not None:
+            self.save_memory(memory_path)

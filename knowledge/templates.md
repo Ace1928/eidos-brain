@@ -31,3 +31,16 @@ def main() -> None:
 if __name__ == "__main__":
     main()
 ```
+
+## Persistence Template
+```python
+from pathlib import Path
+
+def save_data(data: list[str], path: Path) -> None:
+    """Write each item in ``data`` to ``path`` separated by newlines."""
+    path.write_text("\n".join(data))
+
+def load_data(path: Path) -> list[str]:
+    """Return newline-separated entries from ``path`` if it exists."""
+    return path.read_text().splitlines() if path.exists() else []
+```

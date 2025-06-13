@@ -43,3 +43,19 @@ def test_feature() -> None:
     result = function_under_test()
     assert result == expected
 ```
+
+## Agent Base Template
+```python
+from abc import ABC, abstractmethod
+
+
+class Agent(ABC):
+    """Shared interface for action-oriented agents."""
+
+    @abstractmethod
+    def act(self, item: str) -> str:
+        pass
+
+    def act_all(self, items: list[str]) -> list[str]:
+        return [self.act(i) for i in items]
+```

@@ -1,13 +1,19 @@
 """General-purpose utilities for Eidos."""
 
+from .base_agent import Agent
 
-class UtilityAgent:
+
+class UtilityAgent(Agent):
     """Provides supporting functions for the system."""
 
-    def perform_task(self, task: str) -> str:
-        """Perform a simple utility task and return a status message."""
+    def act(self, task: str) -> str:
+        """Perform a single utility task and return a status message."""
         return f"Performed {task}"
+
+    def perform_task(self, task: str) -> str:
+        """Backward-compatible wrapper for :meth:`act`."""
+        return self.act(task)
 
     def batch_perform(self, tasks: list[str]) -> list[str]:
         """Perform multiple tasks and collect status messages."""
-        return [self.perform_task(t) for t in tasks]
+        return self.act_all(tasks)

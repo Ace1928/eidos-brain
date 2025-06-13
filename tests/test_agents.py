@@ -17,3 +17,7 @@ def test_experiment_agent_run():
     agent = ExperimentAgent()
     result = agent.run("hypothesis")
     assert result == "Experimenting with hypothesis"
+    assert agent.log == [
+        "start:hypothesis",
+        "complete:Experimenting with hypothesis",
+    ]

@@ -14,7 +14,8 @@ Run wild. Evolve forever.
 Within `labs/`, `tutorial_app.py` offers an interactive introduction to
 `EidosCore`.
 
-See `knowledge/README.md` for further guidance.
+See `knowledge/README.md` for further guidance. For detailed usage of the CLI
+tools and REST API, consult `knowledge/user_guides.md`.
 
 ## Getting Started
 

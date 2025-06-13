@@ -1,18 +1,18 @@
 # Glossary Reference
 
-This generated list standardizes terminology used across all documentation.
-Refer back to `templates.md` for code usage examples and to
-`recursive_patterns.md` for context on how these terms interact recursively.
-
 ## Classes
 - EidosCore
 - ExperimentAgent
+- MemoryItem
 - MetaReflection
 - UtilityAgent
 
 ## Functions
+- build_parser
 - load_memory
 - main
+- memories
+- remember
 - save_memory
 
 ## Constants

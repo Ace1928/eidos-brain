@@ -10,21 +10,40 @@ def test_main_exits_quickly():
         tutorial_app.main()
 
 
-def test_save_and_load_memory(tmp_path: Path):
+def test_save_and_load_memory(tmp_path: Path) -> None:
+    """Save a memory then load it back and confirm output."""
     memory_file = tmp_path / "mem.txt"
     with patch("rich.prompt.Prompt.ask", side_effect=["add", "hello", "exit"]), patch(
         "rich.console.Console.print"
     ) as mock_print:
         tutorial_app.main(save=str(memory_file))
-        save_output = "".join(call.args[0] for call in mock_print.call_args_list)
+        outputs = "".join(call.args[0] for call in mock_print.call_args_list)
     assert memory_file.exists()
-    assert "Memories saved" in save_output
+    assert outputs.count("Memories saved") == 1
     with patch("rich.prompt.Prompt.ask", side_effect=["reflect", "exit"]), patch(
         "rich.console.Console.print"
     ) as mock_print:
         tutorial_app.main(load=str(memory_file))
         prints = "".join(call.args[0] for call in mock_print.call_args_list)
     assert "Loaded 1 memories" in prints
+
+
+def test_save_called_once(tmp_path: Path) -> None:
+    """``save_memory`` should be invoked exactly once on exit."""
+    memory_file = tmp_path / "mem.txt"
+    with patch("labs.tutorial_app.save_memory") as mock_save, patch(
+        "rich.prompt.Prompt.ask", side_effect=["exit"]
+    ):
+        tutorial_app.main(save=str(memory_file))
+    assert mock_save.call_count == 1
+
+
+def test_parser_arguments() -> None:
+    """Parser should accept ``--load`` and ``--save``."""
+    parser = tutorial_app.build_parser()
+    args = parser.parse_args(["--load", "in.txt", "--save", "out.txt"])
+    assert args.load == "in.txt"
+    assert args.save == "out.txt"
 
 
 def test_cli_help():

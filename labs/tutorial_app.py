@@ -56,20 +56,22 @@ def main(load: str | None = None, save: str | None = None) -> None:
             core.recurse()
             console.print("Reflection complete. Insights appended.")
         elif action == "exit":
-            if save:
-                save_memory(core, Path(save), console)
             console.print("Goodbye!")
-            if save:
-                save_memory(core, Path(save), console)
             break
 
     if save:
         save_memory(core, Path(save), console)
 
 
-if __name__ == "__main__":
+def build_parser() -> argparse.ArgumentParser:
+    """Return an argument parser for the CLI."""
     parser = argparse.ArgumentParser(description="Eidos interactive tutorial")
     parser.add_argument("--load", help="Path to memory file to load", default=None)
     parser.add_argument("--save", help="Path to save memories on exit", default=None)
+    return parser
+
+
+if __name__ == "__main__":
+    parser = build_parser()
     args = parser.parse_args()
     main(load=args.load, save=args.save)

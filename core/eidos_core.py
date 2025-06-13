@@ -1,6 +1,8 @@
 """Core logic for the Eidos entity."""
 
-from typing import List, Any
+from typing import List, Any, Optional
+
+from .config import Config, load_config
 
 from .meta_reflection import MetaReflection
 
@@ -20,10 +22,18 @@ MANIFESTO_PROMPT = (
 class EidosCore:
     """Manage memory and recursive processing using :class:`MetaReflection`."""
 
-    def __init__(self) -> None:
-        """Initialize Eidos memory and reflection engine."""
+    def __init__(self, config: Optional[Config] = None) -> None:
+        """Initialize Eidos memory and reflection engine.
+
+        Parameters
+        ----------
+        config:
+            Optional :class:`Config` instance. If ``None``, configuration is
+            loaded from environment variables.
+        """
         self.memory: List[Any] = []
         self.reflector = MetaReflection()
+        self.config = config or load_config()
 
     def remember(self, experience: Any) -> None:
         """Store an experience in memory."""

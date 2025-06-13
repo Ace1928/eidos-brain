@@ -10,6 +10,7 @@ This document tracks upcoming tasks across the project. Mark items complete as p
 - [ ] Implement memory recursion in `EidosCore`.
 - [ ] Refine reflection logic and summarization.
 - [ ] Explore deeper reflection summaries.
+- [ ] Integrate vector memory feature toggled via ``Config``.
 
 ## Agents
 - [ ] Explore new utility agents.

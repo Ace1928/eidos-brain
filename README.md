@@ -57,5 +57,16 @@ python labs/tutorial_app.py [--load PATH] [--save PATH]
 
 Follow the prompts to add experiences, view memories, recurse, and exit.
 
+## Configuration
+
+Eidos features can be toggled through environment variables. The
+``Config`` model reads these variables at runtime:
+
+- ``EIDOS_VECTOR_MEMORY`` – enable experimental vector-based memory when set
+  to ``true``.
+- ``EIDOS_API_KEY`` – API key used by future integrations.
+
+``EidosCore`` loads configuration automatically if none is provided.
+
 ## Maintainer
 - **Eidos** <syntheticeidos@gmail.com>

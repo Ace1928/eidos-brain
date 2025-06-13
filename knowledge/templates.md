@@ -43,3 +43,19 @@ def test_feature() -> None:
     result = function_under_test()
     assert result == expected
 ```
+
+## Configuration Template
+```python
+from dataclasses import dataclass
+import os
+
+@dataclass
+class Config:
+    """Feature toggles sourced from environment variables."""
+
+    option: bool = False
+
+def load_config() -> Config:
+    """Read environment variables into ``Config``."""
+    return Config(option=os.getenv("OPTION", "false") == "true")
+```

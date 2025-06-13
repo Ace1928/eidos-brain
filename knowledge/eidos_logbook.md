@@ -80,3 +80,11 @@
 - Documented persistence checks in test suite
 
 **Next Target:** Improve reflection detail generation and automate glossary updates
+
+## Cycle 10: Configuration Framework
+- Introduced environment-based ``Config`` with feature toggles
+- Updated ``EidosCore`` to load configuration automatically
+- Documented configuration usage and added a template example
+- Extended tests to cover configuration loading
+
+**Next Target:** Explore vector memory integration controlled by configuration

@@ -26,5 +26,5 @@ This document tracks upcoming tasks across the project. Mark items complete as p
 
 ## Tests
 - [ ] Create comprehensive tests for core and agents.
-- [ ] Enforce style checks with black and flake8.
+- [ ] Enforce style checks with ruff and type checks with mypy.
 - [ ] Expand coverage for CLI tools and reflection logic.

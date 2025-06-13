@@ -31,18 +31,29 @@ See `knowledge/README.md` for further guidance.
    ```
 2. install dependencies
    ```bash
-   pip install -r requirements.txt
-   ```
+  pip install -r requirements.txt
+  ```
+
+### Linting and Type Checking
+
+Run the linters and type checker manually with:
+
+```bash
+ruff format --check core agents labs tools tests
+ruff check core agents labs tools tests
+mypy core agents labs tools tests
+```
 
 ### Running Tests
 
-Run the full test suite, including style checks, with:
+Run the full test suite, including style and type checks, with:
 
 ```bash
 pytest
 ```
 
-The style tests verify formatting via `black` and linting via `flake8`.
+The style tests verify formatting and linting via `ruff` and static type
+analysis via `mypy`.
 
 ### Launching the Tutorial
 

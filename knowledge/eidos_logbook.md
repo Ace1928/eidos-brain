@@ -80,3 +80,13 @@
 - Documented persistence checks in test suite
 
 **Next Target:** Improve reflection detail generation and automate glossary updates
+
+## Cycle 10: Linting and Type Checking
+- Replaced `black` and `flake8` with `ruff` for formatting and linting
+- Introduced `mypy` configuration for static type analysis
+- Added `pyproject.toml` storing `ruff` and `mypy` settings
+- Updated test suite to enforce `ruff` formatting, `ruff` linting, and `mypy` checks
+- Documented new configuration templates in `knowledge/templates.md`
+- Updated README and TODO references to reflect new style tools
+
+**Next Target:** Refine reflection summaries and explore automated logbook generation

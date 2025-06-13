@@ -43,3 +43,18 @@ def test_feature() -> None:
     result = function_under_test()
     assert result == expected
 ```
+
+## Ruff Configuration Template
+```toml
+[tool.ruff]
+line-length = 88
+extend-ignore = ["E402", "E501"]
+```
+
+## Mypy Configuration Template
+```toml
+[tool.mypy]
+python_version = "3.10"
+show_error_codes = true
+ignore_missing_imports = true
+```

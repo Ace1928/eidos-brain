@@ -4,14 +4,31 @@ import subprocess
 def test_style():
     assert (
         subprocess.run(
-            ["black", "--check", "--diff", "core", "agents", "labs", "tools", "tests"],
+            [
+                "ruff",
+                "format",
+                "--check",
+                "core",
+                "agents",
+                "labs",
+                "tools",
+                "tests",
+            ],
             check=False,
         ).returncode
         == 0
     )
     assert (
         subprocess.run(
-            ["flake8", "core", "agents", "labs", "tools", "tests"], check=False
+            ["ruff", "check", "core", "agents", "labs", "tools", "tests"],
+            check=False,
+        ).returncode
+        == 0
+    )
+    assert (
+        subprocess.run(
+            ["mypy", "core", "agents", "labs", "tools", "tests"],
+            check=False,
         ).returncode
         == 0
     )

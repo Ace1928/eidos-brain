@@ -42,7 +42,6 @@ def main(load: str | None = None, save: str | None = None) -> None:
 
     if load:
         load_memory(core, Path(load), console)
-
     console.print("[bold underline]Eidos Interactive Tutorial[/]")
     while True:
         console.print("\nChoose an action: [add, reflect, recurse, exit]")
@@ -60,7 +59,12 @@ def main(load: str | None = None, save: str | None = None) -> None:
             if save:
                 save_memory(core, Path(save), console)
             console.print("Goodbye!")
+            if save:
+                save_memory(core, Path(save), console)
             break
+
+    if save:
+        save_memory(core, Path(save), console)
 
 
 if __name__ == "__main__":

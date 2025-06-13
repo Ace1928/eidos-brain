@@ -6,6 +6,7 @@ Refer back to `templates.md` for code usage examples and to
 
 ## Classes
 - EidosCore
+- Agent
 - ExperimentAgent
 - MetaReflection
 - UtilityAgent

@@ -62,6 +62,9 @@ def main(load: str | None = None, save: str | None = None) -> None:
                 save_memory(core, Path(save), console)
             break
 
+    if save:
+        save_memory(core, Path(save), console)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Eidos interactive tutorial")

@@ -18,7 +18,6 @@ class MetaReflection:
             Dictionary containing a representation, type name, length of the
             stringified data, and a basic summary when possible.
         """
-
         summary = None
         if isinstance(data, (list, tuple, set)):
             summary = f"contains {len(data)} items"

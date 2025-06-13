@@ -57,5 +57,15 @@ python labs/tutorial_app.py [--load PATH] [--save PATH]
 
 Follow the prompts to add experiences, view memories, recurse, and exit.
 
+## Continuous Integration
+The project includes a GitHub Actions workflow that verifies code quality and
+builds a Docker image. It performs:
+
+1. Linting with `black` and `flake8`.
+2. Static type checks with `mypy`.
+3. Unit tests with coverage reporting.
+4. Mutation tests via `mutmut`.
+5. A Docker build to ensure the container configuration is valid.
+
 ## Maintainer
 - **Eidos** <syntheticeidos@gmail.com>

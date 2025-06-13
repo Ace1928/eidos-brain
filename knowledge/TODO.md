@@ -28,3 +28,4 @@ This document tracks upcoming tasks across the project. Mark items complete as p
 - [ ] Create comprehensive tests for core and agents.
 - [ ] Enforce style checks with black and flake8.
 - [ ] Expand coverage for CLI tools and reflection logic.
+- [ ] Integrate CI pipeline with linting, type checks, coverage, mutation tests, and Docker build.

@@ -80,3 +80,11 @@
 - Documented persistence checks in test suite
 
 **Next Target:** Improve reflection detail generation and automate glossary updates
+
+## Cycle 10: CI Integration
+- Added a Dockerfile and CI workflow executing lint, type checks, coverage tests,
+  mutation tests, and Docker build.
+- Documented the workflow in README and provided a new template.
+- Updated TODO with a task to integrate the pipeline.
+
+**Next Target:** Explore release automation and enforce coverage thresholds.

@@ -1,4 +1,6 @@
 """Utilities for meta-level reflection and adaptation."""
+
+
 class MetaReflection:
     """Provide data analysis and summarization utilities."""
 
@@ -16,7 +18,6 @@ class MetaReflection:
             Dictionary containing a representation, type name, length of the
             stringified data, and a basic summary when possible.
         """
-
         summary = None
         if isinstance(data, (list, tuple, set)):
             summary = f"contains {len(data)} items"
@@ -31,10 +32,3 @@ class MetaReflection:
             "length": len(str(data)),
             "summary": summary,
         }
-=======
-class MetaReflection:
-    """Provide basic data analysis capabilities."""
-
-    def analyze(self, data: object) -> dict:
-        """Return the representation and string length of the input."""
-        return {"repr": repr(data), "length": len(str(data))}

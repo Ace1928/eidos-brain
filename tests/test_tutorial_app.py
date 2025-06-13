@@ -1,13 +1,15 @@
 from unittest.mock import patch
-
-from labs import tutorial_app
 from pathlib import Path
 import subprocess
 import sys
 
+from labs import tutorial_app
+
+
 def test_main_exits_quickly():
     with patch("rich.prompt.Prompt.ask", side_effect=["exit"]):
         tutorial_app.main()
+
 
 def test_save_and_load_memory(tmp_path: Path):
     memory_file = tmp_path / "mem.txt"
@@ -37,3 +39,4 @@ def test_cli_help():
         text=True,
     )
     assert result.returncode == 0
+    assert "Eidos interactive tutorial" in result.stdout

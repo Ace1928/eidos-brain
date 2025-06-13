@@ -6,11 +6,14 @@ Refer back to `templates.md` for code usage examples and to
 
 ## Classes
 - EidosCore
+- Engine
+- EventBus
 - ExperimentAgent
 - MetaReflection
 - UtilityAgent
 
 ## Functions
+- build_parser
 - load_memory
 - main
 - save_memory

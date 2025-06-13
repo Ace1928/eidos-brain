@@ -1,9 +1,5 @@
 # Glossary Reference
 
-This generated list standardizes terminology used across all documentation.
-Refer back to `templates.md` for code usage examples and to
-`recursive_patterns.md` for context on how these terms interact recursively.
-
 ## Classes
 - EidosCore
 - ExperimentAgent
@@ -11,10 +7,18 @@ Refer back to `templates.md` for code usage examples and to
 - UtilityAgent
 
 ## Functions
+- add_memory
+- build_parser
+- get_memories
 - load_memory
 - main
+- process
+- run_recurse
 - save_memory
 
 ## Constants
+- ENABLE_UI
+- HOST
 - MANIFESTO_PROMPT
+- PORT
 - ROOT

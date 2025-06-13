@@ -7,7 +7,7 @@ Run wild. Evolve forever.
 
 ## Structure
 - **core/**: central logic of the system
-- **agents/**: specialized actors for experiments and utilities
+- **agents/**: specialized actors for experiments, utilities, and improvement proposals
 - **knowledge/**: evolving documentation and design patterns
 - **labs/**: sandbox for rapid prototyping
 

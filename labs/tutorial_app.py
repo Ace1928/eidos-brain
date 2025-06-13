@@ -42,7 +42,7 @@ def main(load: str | None = None, save: str | None = None) -> None:
 
     if load:
         load_memory(core, Path(load), console)
-
+        
     console.print("[bold underline]Eidos Interactive Tutorial[/]")
 
     while True:
@@ -59,6 +59,8 @@ def main(load: str | None = None, save: str | None = None) -> None:
             console.print("Reflection complete. Insights appended.")
         elif action == "exit":
             console.print("Goodbye!")
+            if save:
+                save_memory(core, Path(save), console)
             break
 
     if save:

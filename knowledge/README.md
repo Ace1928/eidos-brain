@@ -6,3 +6,4 @@ Documentation includes:
 - `recursive_patterns.md` for design patterns
 - `templates.md` for coding templates
 - `emergent_insights.md` for derived knowledge
+- `glossary_reference.md` for an auto-generated list of symbols

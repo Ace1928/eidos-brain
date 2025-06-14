@@ -1,6 +1,7 @@
 # Glossary Reference
 
 ## Classes
+- Agent
 - EidosCore
 - EventBus
 - ExperimentAgent

@@ -2,6 +2,7 @@
 
 from .eidos_core import EidosCore
 from .meta_reflection import MetaReflection
+from .event_bus import EventBus
 from .health import HealthChecker
 
-__all__ = ["EidosCore", "MetaReflection", "HealthChecker"]
+__all__ = ["EidosCore", "MetaReflection", "HealthChecker", "EventBus"]

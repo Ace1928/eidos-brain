@@ -1,20 +1,20 @@
 # Glossary Reference
 
 ## Classes
-- EidosCore
-- ExperimentAgent
-- HealthChecker
-- MetaReflection
-- UtilityAgent
+-EidosCore
+-EventBus
+-ExperimentAgent
+-MetaReflection
+-UtilityAgent
 
 ## Functions
-- build_parser
-- create_app
-- load_memory
-- main
-- run_server
-- save_memory
+-build_parser
+-load_memory
+-main
+-save_memory
+-create_app
+-run_server
 
 ## Constants
-- MANIFESTO_PROMPT
-- ROOT
+-MANIFESTO_PROMPT
+-ROOT

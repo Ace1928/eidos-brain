@@ -89,6 +89,8 @@
 - Documented API usage in the README and generated new tests.
 - Added FastAPI service and compose stack
 - Added API server and Dockerfile
+- Implemented LLM adapter and cycle summary tool for automated logbook updates
+- Updated glossary and added tests for the new modules
 
 **Next Target:** Refine reflection summaries
 

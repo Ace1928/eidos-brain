@@ -10,6 +10,7 @@
 - EidosCore
 - EventBus
 - ExperimentAgent
+- LLMAdapter
 - MemoryItem
 - MetaReflection
 - UtilityAgent

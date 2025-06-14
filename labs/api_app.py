@@ -32,7 +32,7 @@ def create_app() -> FastAPI:
     def recurse() -> dict[str, int]:
         """Run a recursion cycle and return memory count."""
         app.state.core.recurse()
-        return {"count": len(app.state.core.memory)}
+        return {"count": app.state.core.memory_count()}
 
     return app
 

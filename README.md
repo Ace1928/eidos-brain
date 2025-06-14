@@ -59,6 +59,32 @@ python labs/tutorial_app.py [--load PATH] [--save PATH]
 
 Follow the prompts to add experiences, view memories, recurse, and exit.
 
+### Running the API
+
+The FastAPI service exposes the core features over HTTP. A Docker compose file is
+provided for convenience:
+
+```bash
+docker compose up
+```
+
+To launch the optional static UI as well:
+
+```bash
+docker compose --profile ui up
+```
+
+#### Configuration
+
+The service reads the following environment variables:
+
+- `HOST` – address for the API server (default `0.0.0.0`)
+- `PORT` – port the server listens on (default `8000`)
+- `ENABLE_UI` – set to `true` to enable the interactive docs
+
+Expose different values by exporting variables before starting the compose stack
+or by defining them in an `.env` file.
+
 ### Docker Usage
 
 Build the Docker image locally with:
@@ -76,7 +102,7 @@ docker run --rm eidos-brain:latest
 Tagged pushes automatically publish an image to
 `ghcr.io/<OWNER>/<REPO>` via GitHub Actions.
 
-### Running the API
+### Running the Health API
 
 Start the health-check server with:
 

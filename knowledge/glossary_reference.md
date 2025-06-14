@@ -10,6 +10,13 @@
 - UtilityAgent
 
 ## Functions
+- add_memory
+- build_parser
+- get_memories
+- load_memory
+- main
+- process
+- run_recurse
 - build_parser
 - load_memory
 - main
@@ -20,5 +27,8 @@
 - run_server
 
 ## Constants
--MANIFESTO_PROMPT
--ROOT
+- ENABLE_UI
+- HOST
+- MANIFESTO_PROMPT
+- PORT
+- ROOT

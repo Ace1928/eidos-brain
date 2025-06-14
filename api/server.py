@@ -1,38 +1,54 @@
-"""WSGI server exposing health-check endpoints."""
+"""FastAPI service exposing EidosCore operations."""
 
 from __future__ import annotations
 
-from typing import Callable, Iterable
-from wsgiref.simple_server import make_server
+import os
 
-from core.health import HealthChecker
+from fastapi import FastAPI
 
+from core.eidos_core import EidosCore
 
-def create_app(checker: HealthChecker | None = None) -> Callable:
-    """Return a WSGI app providing ``/healthz``."""
+HOST = os.getenv("HOST", "0.0.0.0")
+PORT = int(os.getenv("PORT", "8000"))
+ENABLE_UI = os.getenv("ENABLE_UI", "false").lower() == "true"
 
-    checker = checker or HealthChecker()
-
-    def app(environ: dict, start_response: Callable) -> Iterable[bytes]:
-        path = environ.get("PATH_INFO", "")
-        if environ.get("REQUEST_METHOD") == "GET" and path == "/healthz":
-            status = "200 OK"
-            body = checker.check()
-            start_response(status, [("Content-Type", "application/json")])
-            return [f"{{\"status\": \"{body['status']}\"}}".encode()]
-
-        start_response("404 Not Found", [("Content-Type", "text/plain")])
-        return [b"Not Found"]
-
-    return app
+app = FastAPI(title="Eidos API", docs_url="/docs" if ENABLE_UI else None)
+core = EidosCore()
 
 
-def run_server(host: str = "0.0.0.0", port: int = 8000) -> None:
-    """Launch the WSGI server."""
+@app.get("/memories")
+def get_memories() -> list[object]:
+    """Return stored memories."""
+    return core.reflect()
 
-    with make_server(host, port, create_app()) as httpd:
-        httpd.serve_forever()
+
+@app.post("/remember")
+def add_memory(experience: str) -> dict[str, str]:
+    """Store a new experience."""
+    core.remember(experience)
+    return {"status": "stored"}
+
+
+@app.post("/recurse")
+def run_recurse() -> dict[str, str]:
+    """Run recursion on current memories."""
+    core.recurse()
+    return {"status": "recurred"}
+
+
+@app.post("/process")
+def process(experience: str) -> dict[str, str]:
+    """Remember an experience and immediately recurse."""
+    core.process_cycle(experience)
+    return {"status": "processed"}
+
+
+def main() -> None:
+    """Launch the API server."""
+    import uvicorn
+
+    uvicorn.run("api.server:app", host=HOST, port=PORT, reload=False)
 
 
 if __name__ == "__main__":
-    run_server()
+    main()

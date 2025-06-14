@@ -65,6 +65,17 @@ if __name__ == "__main__":
     main()
 ```
 
+## API Application Template
+```python
+from fastapi import FastAPI
+
+def create_app() -> FastAPI:
+    """Return an API with defined routes."""
+    app = FastAPI()
+    # Register routes here
+    return app
+ ```
+ 
 ## REST API Template
 ```python
 from fastapi import FastAPI

@@ -1,6 +1,11 @@
 # Glossary Reference
 
 ## Classes
+-EidosCore
+-Experience
+-ExperimentAgent
+-MetaReflection
+-UtilityAgent
 - Agent
 - EidosCore
 - EventBus

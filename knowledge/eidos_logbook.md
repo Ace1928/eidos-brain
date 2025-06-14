@@ -88,6 +88,7 @@
 - Updated documentation templates with a WSGI API example.
 - Documented API usage in the README and generated new tests.
 - Added FastAPI service and compose stack
+- Added API server and Dockerfile
 
 **Next Target:** Refine reflection summaries
 

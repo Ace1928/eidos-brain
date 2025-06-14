@@ -2,3 +2,6 @@ rich
 pytest
 black
 flake8
+fastapi
+uvicorn
+httpx

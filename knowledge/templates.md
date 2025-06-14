@@ -65,6 +65,26 @@ if __name__ == "__main__":
     main()
 ```
 
+## REST API Template
+```python
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/status")
+def status() -> dict[str, str]:
+    """Return a basic health check."""
+    return {"status": "ok"}
+```
+
+## Deployment Template
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+uvicorn package.module:app --host 0.0.0.0 --port 8000
+```
+
 ## Test Template
 ```python
 def test_feature() -> None:

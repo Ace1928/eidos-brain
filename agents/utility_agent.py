@@ -12,6 +12,12 @@ class UtilityAgent(Agent):
 
     def perform_task(self, task: str) -> str:
         """Backward-compatible wrapper for :meth:`act`."""
+        warnings.warn(
+            "perform_task is deprecated and will be removed in a future release. "
+            "Please use the act method instead.",
+            DeprecationWarning,
+            stacklevel=2
+        )
         return self.act(task)
 
     def batch_perform(self, tasks: list[str]) -> list[str]:

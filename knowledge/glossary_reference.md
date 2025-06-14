@@ -2,6 +2,7 @@
 
 ## Classes
 - EidosCore
+- EventBus
 - ExperimentAgent
 - MemoryItem
 - MetaReflection
@@ -14,7 +15,9 @@
 - memories
 - remember
 - save_memory
+- create_app
+- run_server
 
 ## Constants
-- MANIFESTO_PROMPT
-- ROOT
+-MANIFESTO_PROMPT
+-ROOT

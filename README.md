@@ -20,6 +20,21 @@ tools and REST API, consult `knowledge/user_guides.md`.
 
 ## Getting Started
 
+### Download
+Clone the repository and move into the project directory:
+
+```bash
+git clone https://github.com/<OWNER>/eidos-brain.git
+cd eidos-brain
+```
+
+Alternatively with the GitHub CLI:
+
+```bash
+gh repo clone <OWNER>/eidos-brain
+cd eidos-brain
+```
+
 ### Requirements
 - Python 3.10+
 - pip for package management
@@ -136,6 +151,21 @@ python -m api.server
 ```
 
 Verify container health by visiting `http://localhost:8000/healthz`.
+
+### WSGI Example
+
+Deploy the lightweight health checker with any WSGI host:
+
+```bash
+gunicorn --bind 0.0.0.0:8000 api.server:create_app
+```
+
+The same helper can be invoked directly from Python:
+
+```python
+from api import run_server
+run_server()
+```
 
 ## Maintainer
 - **Eidos** <syntheticeidos@gmail.com>

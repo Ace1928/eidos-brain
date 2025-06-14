@@ -28,16 +28,22 @@ Use `--next` to note the next target for recursion.
 
 ## REST API Usage
 
-A basic API exposes Eidos functionality via HTTP. The `labs/api_demo.py` module uses `FastAPI` following the template in `templates.md`.
+A basic API exposes Eidos functionality via HTTP. The preferred implementation is `api.server`, which integrates FastAPI routes and provides WSGI helpers.
 
 Start the server with:
 ```bash
-uvicorn labs.api_demo:app --reload
+uvicorn api.server:app --reload
 ```
 
 ### Example Requests
 - `POST /remember` with JSON `{ "item": "data" }` stores a memory.
 - `GET /memories` returns the current memory list.
+
+### WSGI Deployment
+Serve only the health endpoint with a WSGI host:
+```bash
+gunicorn api.server:create_app
+```
 
 ## Deployment Instructions
 

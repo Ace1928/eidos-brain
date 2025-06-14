@@ -13,11 +13,12 @@ class ExperimentAgent(Agent):
     def run(self, hypothesis: str) -> str:
         """Backward-compatible wrapper for :meth:`act`."""
         import warnings
+
         warnings.warn(
             "The `run` method is deprecated and will be removed in a future release. "
             "Please use the `act` method directly.",
             DeprecationWarning,
-            stacklevel=2
+            stacklevel=2,
         )
         return self.act(hypothesis)
 

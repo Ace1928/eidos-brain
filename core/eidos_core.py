@@ -68,3 +68,7 @@ class EidosCore:
         """
         self.remember(experience)
         self.recurse()
+
+    def memory_count(self) -> int:
+        """Return the current number of stored memories."""
+        return len(self.memory)

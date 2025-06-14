@@ -10,6 +10,7 @@ Run wild. Evolve forever.
 - **agents/**: specialized actors for experiments and utilities
 - **knowledge/**: evolving documentation and design patterns
 - **labs/**: sandbox for rapid prototyping
+- **api/**: lightweight HTTP interface with health checks
 
 Within `labs/`, `tutorial_app.py` offers an interactive introduction to
 `EidosCore`.
@@ -56,6 +57,16 @@ python labs/tutorial_app.py [--load PATH] [--save PATH]
 - `--save PATH` writes memories when exiting.
 
 Follow the prompts to add experiences, view memories, recurse, and exit.
+
+### Running the API
+
+Start the health-check server with:
+
+```bash
+python -m api.server
+```
+
+Verify container health by visiting `http://localhost:8000/healthz`.
 
 ## Maintainer
 - **Eidos** <syntheticeidos@gmail.com>

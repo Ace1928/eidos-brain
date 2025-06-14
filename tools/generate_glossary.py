@@ -6,7 +6,7 @@ import ast
 from pathlib import Path
 
 OUTPUT_PATH = Path("knowledge/glossary_reference.md")
-SOURCE_DIRS = ["core", "agents", "labs"]
+SOURCE_DIRS = ["core", "agents", "labs", "api"]
 
 
 def extract_symbols(path: Path) -> list[tuple[str, str]]:

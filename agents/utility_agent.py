@@ -1,5 +1,7 @@
 """General-purpose utilities for Eidos."""
 
+import warnings
+
 from .base_agent import Agent
 
 
@@ -16,7 +18,7 @@ class UtilityAgent(Agent):
             "perform_task is deprecated and will be removed in a future release. "
             "Please use the act method instead.",
             DeprecationWarning,
-            stacklevel=2
+            stacklevel=2,
         )
         return self.act(task)
 

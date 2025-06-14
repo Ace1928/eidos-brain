@@ -10,11 +10,13 @@ Run wild. Evolve forever.
 - **agents/**: specialized actors for experiments and utilities
 - **knowledge/**: evolving documentation and design patterns
 - **labs/**: sandbox for rapid prototyping
+- **api/**: lightweight HTTP interface with health checks
 
 Within `labs/`, `tutorial_app.py` offers an interactive introduction to
 `EidosCore`.
 
-See `knowledge/README.md` for further guidance.
+See `knowledge/README.md` for further guidance. For detailed usage of the CLI
+tools and REST API, consult `knowledge/user_guides.md`.
 
 ## Getting Started
 
@@ -81,6 +83,59 @@ docker run -p 8000:8000 eidos-brain \
 ```
 
 The container uses a slim Alpine base so dependencies compile cleanly.
+
+### Running the API
+
+The FastAPI service exposes the core features over HTTP. A Docker compose file is
+provided for convenience:
+
+```bash
+docker compose up
+```
+
+To launch the optional static UI as well:
+
+```bash
+docker compose --profile ui up
+```
+
+#### Configuration
+
+The service reads the following environment variables:
+
+- `HOST` – address for the API server (default `0.0.0.0`)
+- `PORT` – port the server listens on (default `8000`)
+- `ENABLE_UI` – set to `true` to enable the interactive docs
+
+Expose different values by exporting variables before starting the compose stack
+or by defining them in an `.env` file.
+
+### Docker Usage
+
+Build the Docker image locally with:
+
+```bash
+docker build -t eidos-brain:latest .
+```
+
+Run the tutorial inside the container:
+
+```bash
+docker run --rm eidos-brain:latest
+```
+
+Tagged pushes automatically publish an image to
+`ghcr.io/<OWNER>/<REPO>` via GitHub Actions.
+
+### Running the Health API
+
+Start the health-check server with:
+
+```bash
+python -m api.server
+```
+
+Verify container health by visiting `http://localhost:8000/healthz`.
 
 ## Maintainer
 - **Eidos** <syntheticeidos@gmail.com>

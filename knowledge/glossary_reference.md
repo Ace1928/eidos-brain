@@ -1,8 +1,11 @@
 # Glossary Reference
 
 ## Classes
+- Agent
 - EidosCore
+- EventBus
 - ExperimentAgent
+- MemoryItem
 - MetaReflection
 - UtilityAgent
 
@@ -14,7 +17,14 @@
 - main
 - process
 - run_recurse
+- build_parser
+- load_memory
+- main
+- memories
+- remember
 - save_memory
+- create_app
+- run_server
 
 ## Constants
 - ENABLE_UI

@@ -12,6 +12,8 @@
 -load_memory
 -main
 -save_memory
+-create_app
+-run_server
 
 ## Constants
 -MANIFESTO_PROMPT

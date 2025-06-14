@@ -24,14 +24,14 @@ tools and REST API, consult `knowledge/user_guides.md`.
 Clone the repository and move into the project directory:
 
 ```bash
-git clone https://github.com/<OWNER>/eidos-brain.git
+git clone https://github.com/Ace1928/eidos-brain.git
 cd eidos-brain
 ```
 
 Alternatively with the GitHub CLI:
 
 ```bash
-gh repo clone <OWNER>/eidos-brain
+gh repo clone Ace1928/eidos-brain
 cd eidos-brain
 ```
 

@@ -1,5 +1,4 @@
-"""API package exposing EidosCore through FastAPI."""
-"""Minimal WSGI API exposing Eidos services."""
+"""Expose Eidos functionality via FastAPI and WSGI helpers."""
 
 from .server import create_app, run_server
 

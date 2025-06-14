@@ -1,15 +1,12 @@
 # Glossary Reference
 
 ## Classes
--EidosCore
--Experience
--ExperimentAgent
--MetaReflection
--UtilityAgent
 - Agent
 - EidosCore
 - EventBus
+- Experience
 - ExperimentAgent
+- HealthChecker
 - LLMAdapter
 - MemoryItem
 - MetaReflection
@@ -18,19 +15,16 @@
 ## Functions
 - add_memory
 - build_parser
+- create_app
 - get_memories
 - load_memory
 - main
-- process
-- run_recurse
-- build_parser
-- load_memory
-- main
 - memories
+- process
 - remember
-- save_memory
-- create_app
+- run_recurse
 - run_server
+- save_memory
 
 ## Constants
 - ENABLE_UI
